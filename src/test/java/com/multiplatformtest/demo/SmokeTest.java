@@ -2,12 +2,11 @@ package com.multiplatformtest.demo;
 
 import org.testng.annotations.Test;
 
-@Test
-public class SmokeTest extends DemoApplicationTests {
+public class SmokeTest extends TestBase {
 
     @Test
     public void testFillEmailInput(){
-        loginPage.fillEmailInput("email@em.com");
+        loginPage.fillEmailInput("email");
     }
 
 }
