@@ -22,7 +22,7 @@ public class IosPlatform implements Driver {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Jelvix's iPad");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.4");
-        capabilities.setCapability(MobileCapabilityType.APP, "/home/user/Downloads/app-devServer-debug.apk");
+        capabilities.setCapability(MobileCapabilityType.APP, "/Users/user/Downloads/app-devServer-debug.apk");
         return capabilities;
     }
 }
