@@ -4,7 +4,9 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -47,5 +49,9 @@ public abstract class Page {
                 throw new IllegalAccessException("There is no such locator " + locator);
 
         }
+    }
+
+    protected void waitForElementBecomesVisible(WebElement element) {
+        wait.withMessage("Can't see the element " + element).until(ExpectedConditions.visibilityOf(element));
     }
 }
