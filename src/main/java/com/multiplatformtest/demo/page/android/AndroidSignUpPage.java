@@ -4,11 +4,13 @@ import com.multiplatformtest.demo.page.AbstractSignUpPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.WebElement;
 
 public class AndroidSignUpPage extends AbstractSignUpPage {
     public AndroidSignUpPage(AppiumDriver driver) {
         super(driver);
     }
+
     @AndroidFindBy(id = "com.fileforlife.app:id/firstNameSignUpEditText")
     private AndroidElement firstNameInput;
 
@@ -34,16 +36,16 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
     private AndroidElement receiveNewsLetterCheckbox;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/passwordCheckBox")
-    public AndroidElement passwordCheckbox;
+    private AndroidElement passwordCheckbox;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/confirmPasswordCheckBox")
-    public AndroidElement confirmPasswordCheckbox;
+    private AndroidElement confirmPasswordCheckbox;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/backImageView")
-    public AndroidElement backButton;
+    private AndroidElement backButton;
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Sign Up')]")
-    public AndroidElement signUpTextView;
+    private AndroidElement signUpTextView;
 
     @AndroidFindBy(id = "android:id/datePicker")
     private AndroidElement datePicker;
@@ -80,4 +82,124 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
 
     @AndroidFindBy(id = "com.android.chrome:id/close_button")
     private AndroidElement closeButtonOnTheWebView;
+
+    @Override
+    protected WebElement firstNameInput() {
+        return null;
+    }
+
+    @Override
+    protected WebElement lastNameInput() {
+        return null;
+    }
+
+    @Override
+    protected WebElement emailInput() {
+        return null;
+    }
+
+    @Override
+    protected WebElement dateOfBirthInput() {
+        return null;
+    }
+
+    @Override
+    protected WebElement passwordInput() {
+        return null;
+    }
+
+    @Override
+    protected WebElement confirmPasswordInput() {
+        return null;
+    }
+
+    @Override
+    protected WebElement signUpButton() {
+        return null;
+    }
+
+    @Override
+    protected WebElement receiveNewsLetterCheckbox() {
+        return null;
+    }
+
+    @Override
+    protected WebElement passwordCheckbox() {
+        return null;
+    }
+
+    @Override
+    protected WebElement confirmPasswordCheckbox() {
+        return null;
+    }
+
+    @Override
+    protected WebElement backButton() {
+        return null;
+    }
+
+    @Override
+    protected WebElement signUpTextView() {
+        return null;
+    }
+
+    @Override
+    protected WebElement datePicker() {
+        return null;
+    }
+
+    @Override
+    protected WebElement datePickerOkButton() {
+        return null;
+    }
+
+    @Override
+    protected WebElement passwordAlert() {
+        return null;
+    }
+
+    @Override
+    protected WebElement okButtonOnThePassworAlert() {
+        return null;
+    }
+
+    @Override
+    protected WebElement firstNameErrorMessage() {
+        return null;
+    }
+
+    @Override
+    protected WebElement lastNameErrorMessage() {
+        return null;
+    }
+
+    @Override
+    protected WebElement emailErrorMessage() {
+        return null;
+    }
+
+    @Override
+    protected WebElement dateOfBirthErrorMessage() {
+        return null;
+    }
+
+    @Override
+    protected WebElement passwordErrorMessage() {
+        return null;
+    }
+
+    @Override
+    protected WebElement confirmPasswordErrorMessage() {
+        return null;
+    }
+
+    @Override
+    protected WebElement privacyLink() {
+        return null;
+    }
+
+    @Override
+    protected WebElement closeButtonOnTheWebView() {
+        return null;
+    }
 }
