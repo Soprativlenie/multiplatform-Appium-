@@ -85,121 +85,121 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
 
     @Override
     protected WebElement firstNameInput() {
-        return null;
+        return firstNameInput;
     }
 
     @Override
     protected WebElement lastNameInput() {
-        return null;
+        return lastNameInput;
     }
 
     @Override
     protected WebElement emailInput() {
-        return null;
+        return emailInput;
     }
 
     @Override
     protected WebElement dateOfBirthInput() {
-        return null;
+        return dateOfBirthInput;
     }
 
     @Override
     protected WebElement passwordInput() {
-        return null;
+        return passwordInput;
     }
 
     @Override
     protected WebElement confirmPasswordInput() {
-        return null;
+        return confirmPasswordInput;
     }
 
     @Override
     protected WebElement signUpButton() {
-        return null;
+        return signUpButton;
     }
 
     @Override
     protected WebElement receiveNewsLetterCheckbox() {
-        return null;
+        return receiveNewsLetterCheckbox;
     }
 
     @Override
     protected WebElement passwordCheckbox() {
-        return null;
+        return passwordCheckbox;
     }
 
     @Override
     protected WebElement confirmPasswordCheckbox() {
-        return null;
+        return confirmPasswordCheckbox;
     }
 
     @Override
     protected WebElement backButton() {
-        return null;
+        return backButton;
     }
 
     @Override
     protected WebElement signUpTextView() {
-        return null;
+        return signUpTextView;
     }
 
     @Override
     protected WebElement datePicker() {
-        return null;
+        return datePicker;
     }
 
     @Override
     protected WebElement datePickerOkButton() {
-        return null;
+        return datePickerOkButton;
     }
 
     @Override
     protected WebElement passwordAlert() {
-        return null;
+        return passwordAlert;
     }
 
     @Override
-    protected WebElement okButtonOnThePassworAlert() {
-        return null;
+    protected WebElement okButtonOnThePasswordAlert() {
+        return okButtonOnThePassworAlert;
     }
 
     @Override
     protected WebElement firstNameErrorMessage() {
-        return null;
+        return firstNameErrorMessage;
     }
 
     @Override
     protected WebElement lastNameErrorMessage() {
-        return null;
+        return lastNameErrorMessage;
     }
 
     @Override
     protected WebElement emailErrorMessage() {
-        return null;
+        return emailErrorMessage;
     }
 
     @Override
     protected WebElement dateOfBirthErrorMessage() {
-        return null;
+        return dateOfBirthErrorMessage;
     }
 
     @Override
     protected WebElement passwordErrorMessage() {
-        return null;
+        return passwordErrorMessage;
     }
 
     @Override
     protected WebElement confirmPasswordErrorMessage() {
-        return null;
+        return confirmPasswordErrorMessage;
     }
 
     @Override
     protected WebElement privacyLink() {
-        return null;
+        return privacyLink;
     }
 
     @Override
     protected WebElement closeButtonOnTheWebView() {
-        return null;
+        return closeButtonOnTheWebView;
     }
 }

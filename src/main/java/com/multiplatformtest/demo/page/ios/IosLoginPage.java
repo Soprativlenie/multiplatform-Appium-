@@ -9,46 +9,66 @@ import org.openqa.selenium.WebElement;
 
 public class IosLoginPage extends AbstractLoginPage {
 
-    @iOSBy(id = "")
-    private IOSElement emailInput;
-
     public IosLoginPage(AppiumDriver driver) {
         super(driver);
     }
 
+
+    @iOSBy()
+    private IOSElement backButton;
+
+    @iOSBy()
+    private IOSElement loginButton;
+
+    @iOSBy()
+    private IOSElement forgotPasswordButton;
+
+    @iOSBy()
+    private IOSElement contactUsLink;
+
+    @iOSBy()
+    private IOSElement emailInput;
+
+    @iOSBy()
+    private IOSElement passwordInput;
+
+    @iOSBy()
+    private IOSElement passwordToggleButton;
+
+
     @Override
     protected WebElement emailInput() {
-        return null;
+        return emailInput;
     }
 
     @Override
     protected WebElement backButton() {
-        return null;
+        return backButton;
     }
 
     @Override
     protected WebElement loginButton() {
-        return null;
+        return loginButton;
     }
 
     @Override
     protected WebElement forgotPasswordButton() {
-        return null;
+        return forgotPasswordButton;
     }
 
     @Override
     protected WebElement contactUsLink() {
-        return null;
+        return contactUsLink;
     }
 
     @Override
     protected WebElement passwordInput() {
-        return null;
+        return passwordInput;
     }
 
     @Override
     protected WebElement passwordToggleButton() {
-        return null;
+        return passwordToggleButton;
     }
 
 }

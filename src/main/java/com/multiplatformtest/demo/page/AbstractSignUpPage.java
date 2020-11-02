@@ -39,7 +39,7 @@ public abstract class AbstractSignUpPage extends Page {
 
     protected abstract WebElement passwordAlert();
 
-    protected abstract WebElement okButtonOnThePassworAlert();
+    protected abstract WebElement okButtonOnThePasswordAlert();
 
     protected abstract WebElement firstNameErrorMessage();
 
@@ -99,7 +99,7 @@ public abstract class AbstractSignUpPage extends Page {
 
     public AbstractSignUpPage tapOkButtonOnThePasswordAlert() {
         wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(passwordAlert()));
-        okButtonOnThePassworAlert().click();
+        okButtonOnThePasswordAlert().click();
         return this;
     }
 

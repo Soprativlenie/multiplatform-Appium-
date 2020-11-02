@@ -26,7 +26,7 @@ public class AndroidPlatform implements Driver {
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.fileforlife.app");
         capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, ".presentation.ui.activity.enter.EnterActivity");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
-        capabilities.setCapability(MobileCapabilityType.APP, "/home/user/Downloads/app-devServer-debug.apk");
+        capabilities.setCapability(MobileCapabilityType.APP, "/home/user/Downloads/androidAPKs/app-devServer-debug.apk");
         return capabilities;
     }
 }
