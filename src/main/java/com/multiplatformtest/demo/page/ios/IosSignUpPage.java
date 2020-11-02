@@ -85,7 +85,7 @@ public class IosSignUpPage extends AbstractSignUpPage {
     }
 
     @Override
-    protected WebElement okButtonOnThePassworAlert() {
+    protected WebElement okButtonOnThePasswordAlert() {
         return null;
     }
 
