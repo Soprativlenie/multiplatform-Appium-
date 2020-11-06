@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 
 
 public class DriverFactory {
+
     private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";
 
     public  Driver getDriver(PlatformType platform) throws MalformedURLException {

@@ -36,6 +36,13 @@ public class AndroidLoginPage extends AbstractLoginPage {
     @AndroidFindBy(id = "com.fileforlife.app:id/passwordCheckBox")
     private AndroidElement passwordToggleButton;
 
+    @AndroidFindBy(id = "com.fileforlife.app:id/invalidEmailTextView")
+    private AndroidElement emailErrorMessage;
+
+    //contains two message(when the password empty/doesn't match the requirement)
+    @AndroidFindBy(id = "com.fileforlife.app:id/invalidPasswordTextView")
+    private AndroidElement passwordErrorMessage;
+
 
     @Override
     protected AndroidElement emailInput() {
@@ -50,6 +57,16 @@ public class AndroidLoginPage extends AbstractLoginPage {
     @Override
     protected WebElement passwordToggleButton() {
         return passwordToggleButton;
+    }
+
+    @Override
+    protected WebElement emailErrorMessage() {
+        return emailErrorMessage;
+    }
+
+    @Override
+    protected WebElement passwordErrorMessage() {
+        return passwordErrorMessage;
     }
 
     @Override

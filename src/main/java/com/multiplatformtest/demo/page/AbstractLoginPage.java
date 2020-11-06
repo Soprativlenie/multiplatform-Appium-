@@ -23,6 +23,10 @@ public abstract class AbstractLoginPage extends Page {
 
     protected abstract WebElement passwordToggleButton();
 
+    protected abstract WebElement emailErrorMessage();
+
+    protected abstract WebElement passwordErrorMessage();
+
     public void fillEmailInput(String email) {
         waitForElementBecomesVisible(emailInput());
         emailInput().sendKeys(email);
