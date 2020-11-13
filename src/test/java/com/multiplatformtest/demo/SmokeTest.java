@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 public class SmokeTest extends TestBase {
 
 
-    @Test(enabled = false)
+    @Test()
     public void should_ReturnUserToPreviewScreen_When_UserTapOnTheBacKButtonOnTheLoginScreen() {
         previewPage.tapTheLogInButton();
         loginPage.fillEmailInput("testig@mailinator.com");
         loginPage.fillPasswordInput("Zaqwsx21.");
-        loginPage.tapLoginInButton();
+        loginPage.tapBackButton();
 
     }
 

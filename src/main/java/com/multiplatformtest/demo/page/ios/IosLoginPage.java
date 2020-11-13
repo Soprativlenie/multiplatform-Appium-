@@ -71,4 +71,14 @@ public class IosLoginPage extends AbstractLoginPage {
         return passwordToggleButton;
     }
 
+    @Override
+    protected WebElement emailErrorMessage() {
+        return null;
+    }
+
+    @Override
+    protected WebElement passwordErrorMessage() {
+        return null;
+    }
+
 }
