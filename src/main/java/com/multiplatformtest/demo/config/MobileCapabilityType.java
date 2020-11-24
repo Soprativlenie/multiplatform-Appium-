@@ -1,4 +1,4 @@
-package com.multiplatformtest.demo.model;/* Created by user on 30.07.20 */
+package com.multiplatformtest.demo.config;/* Created by user on 30.07.20 */
 
 public interface MobileCapabilityType {
     String AUTOMATION_NAME = "automationName";

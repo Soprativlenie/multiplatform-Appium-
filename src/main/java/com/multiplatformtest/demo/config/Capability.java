@@ -1,32 +1,26 @@
-package com.multiplatformtest.demo.model;
+package com.multiplatformtest.demo.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.validation.annotation.Validated;
 
 
-import javax.validation.constraints.NotNull;
-
-
-@Validated
-//@ConfigurationProperties("capability")
+@ConfigurationProperties(prefix = "capability")
 public class Capability {
 
-    @NotNull
+
     private String platformName;
-    @NotNull
+
     private String deviceName;
-    @NotNull
+
     private String platformVersion;
-    @NotNull
+
     private String appPackage;
-    @NotNull
+
     private String appActivity;
-    @NotNull
+
     private String automationName;
-    @NotNull
+
     private String app;
+
 
     public String getPlatformName() {
         return platformName;
