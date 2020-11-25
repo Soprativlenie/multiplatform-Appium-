@@ -1,10 +1,14 @@
 package com.multiplatformtest.demo;
 
-import com.multiplatformtest.demo.driverfactory.Driver;
-import com.multiplatformtest.demo.driverfactory.PlatformType;
+import com.multiplatformtest.demo.driver.Driver;
+import com.multiplatformtest.demo.driver.PlatformType;
 import com.multiplatformtest.demo.page.AbstractLoginPage;
 import com.multiplatformtest.demo.page.AbstractPreviewPage;
 import com.multiplatformtest.demo.page.AbstractSignUpPage;
+import com.multiplatformtest.demo.page.android.AndroidLoginPage;
+import com.multiplatformtest.demo.page.android.AndroidPreviewPage;
+import com.multiplatformtest.demo.page.ios.IosLoginPage;
+import com.multiplatformtest.demo.page.ios.IosPreviewPage;
 import io.appium.java_client.AppiumDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,8 +27,9 @@ class TestBase extends AbstractTestNGSpringContextTests {
     private PlatformType platformType;
 
     private AppiumDriver appiumDriver;
+
     @Autowired
-    @Qualifier("androidDriver")
+    @Qualifier("driver")
     private Driver driver;
     protected AbstractLoginPage loginPage;
     protected AbstractPreviewPage previewPage;
@@ -36,8 +41,8 @@ class TestBase extends AbstractTestNGSpringContextTests {
 
         appiumDriver = driver.setupDriver();
 
-//        loginPage = driverFactory.
-//                isAndroidPlatform(platformType) ? new AndroidLoginPage(appiumDriver) : new IosLoginPage(appiumDriver);
+        previewPage = platformType == PlatformType.ANDROID ? new AndroidPreviewPage(appiumDriver) : new IosPreviewPage(appiumDriver);
+        loginPage = platformType == PlatformType.ANDROID ? new AndroidLoginPage(appiumDriver) : new IosLoginPage(appiumDriver);
 //
 //        previewPage = driverFactory.
 //                isAndroidPlatform(platformType) ? new AndroidPreviewPage(appiumDriver) : new IosPreviewPage(appiumDriver);
@@ -47,7 +52,7 @@ class TestBase extends AbstractTestNGSpringContextTests {
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
         appiumDriver.quit();
     }
 

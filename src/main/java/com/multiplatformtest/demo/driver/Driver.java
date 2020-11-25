@@ -1,4 +1,4 @@
-package com.multiplatformtest.demo.driverfactory;/* Created by user on 28.10.20 */
+package com.multiplatformtest.demo.driver;/* Created by user on 28.10.20 */
 
 import com.multiplatformtest.demo.config.Capability;
 import com.multiplatformtest.demo.config.MobileCapabilityType;
@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 import java.net.URL;
 
-@Component("androidDriver")
-public class AndroidPlatform implements Driver {
+@Component("driver")
+public class Driver {
 
     @Value("${platform}")
     private PlatformType platformType;
@@ -25,7 +25,7 @@ public class AndroidPlatform implements Driver {
     @Value("${appium.url}")
     private URL appiumUrl;
 
-    @Override
+
     public AppiumDriver setupDriver() {
         return platformType == PlatformType.ANDROID
                 ? new AndroidDriver(appiumUrl, getAndroidCapabilities())
@@ -40,8 +40,7 @@ public class AndroidPlatform implements Driver {
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, capability.getAppPackage());
         capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, capability.getAppActivity());
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, capability.getAutomationName());
-        capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, (String) null);
-//        capabilities.setCapability(MobileCapabilityType.APP, "/home/user/Downloads/androidAPKs/app-devServer-debug.apk");
+//        capabilities.setCapability(MobileCapabilityType.APP, capability.getApp());
         capabilities.setCapability(MobileCapabilityType.APP, capability.getApp());
         return capabilities;
     }

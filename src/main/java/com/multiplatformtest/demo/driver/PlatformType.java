@@ -1,4 +1,4 @@
-package com.multiplatformtest.demo.driverfactory;
+package com.multiplatformtest.demo.driver;
 
 public enum PlatformType {
     ANDROID,
