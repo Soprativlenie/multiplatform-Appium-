@@ -21,6 +21,14 @@ public class Capability {
 
     private String app;
 
+    private String autoAcceptAlerts;
+
+    public String getAutoAcceptAlerts(){
+        return autoAcceptAlerts;
+    }
+    public void setAutoAcceptAlerts(String autoAcceptAlerts){
+        this.autoAcceptAlerts = autoAcceptAlerts;
+    }
 
     public String getPlatformName() {
         return platformName;

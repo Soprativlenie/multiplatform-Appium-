@@ -11,11 +11,14 @@ public class IosPreviewPage extends AbstractPreviewPage {
         super(driver);
     }
 
-    @iOSBy()
+    @iOSBy(xpath = "//*[@text='Log in']")
     private IOSElement loginButton;
 
     @iOSBy()
     private IOSElement signUpButton;
+
+    @iOSBy(xpath = "//XCUIElementTypeAlert[@name=“FYIO” Would Like to Send You Notifications]")
+    private IOSElement alertAllow;
 
     @Override
     protected WebElement loginButton() {
@@ -25,5 +28,10 @@ public class IosPreviewPage extends AbstractPreviewPage {
     @Override
     protected WebElement signUpButton() {
         return signUpButton;
+    }
+
+    @Override
+    protected WebElement alert() {
+        return alertAllow;
     }
 }

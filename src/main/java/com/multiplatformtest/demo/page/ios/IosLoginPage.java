@@ -14,7 +14,7 @@ public class IosLoginPage extends AbstractLoginPage {
     }
 
 
-    @iOSBy()
+    @iOSBy( id= "14000000-0000-0000-1F09-000000000000")
     private IOSElement backButton;
 
     @iOSBy()
@@ -26,10 +26,10 @@ public class IosLoginPage extends AbstractLoginPage {
     @iOSBy()
     private IOSElement contactUsLink;
 
-    @iOSBy()
+    @iOSBy(id = "//XCUIElementTypeApplication[@name=\\\"FYIO\\\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
     private IOSElement emailInput;
 
-    @iOSBy()
+    @iOSBy(id = "1E000000-0000-0000-1F09-000000000000")
     private IOSElement passwordInput;
 
     @iOSBy()

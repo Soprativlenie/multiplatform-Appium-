@@ -21,4 +21,5 @@ public interface MobileCapabilityType {
     String APP_PACKAGE = "appPackage";
     String APP_ACTIVITY = "appActivity";
     String PLATFORM_NAME = "platformName";
+    String AUTO_ACCEPT_ALERTS = "autoAcceptAlerts";
 }

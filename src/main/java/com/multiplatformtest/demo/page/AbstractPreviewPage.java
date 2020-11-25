@@ -10,7 +10,7 @@ public abstract class AbstractPreviewPage extends Page {
 
     protected abstract WebElement loginButton();
     protected abstract WebElement signUpButton();
-
+    protected abstract WebElement alert();
 
     public void tapTheLogInButton() {
         waitForElementBecomesVisible(loginButton());
@@ -21,4 +21,5 @@ public abstract class AbstractPreviewPage extends Page {
         waitForElementBecomesVisible(signUpButton());
         signUpButton().click();
     }
+
 }

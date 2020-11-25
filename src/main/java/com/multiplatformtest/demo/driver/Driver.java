@@ -42,6 +42,13 @@ public class Driver {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, capability.getAutomationName());
 //        capabilities.setCapability(MobileCapabilityType.APP, capability.getApp());
         capabilities.setCapability(MobileCapabilityType.APP, capability.getApp());
+        capabilities.setCapability(MobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
         return capabilities;
+    }
+    public boolean isIosDriverInstalled(){
+        return platformType == PlatformType.IOS;
+    }
+    public boolean isAndroidDriverInstalled(){
+        return platformType == PlatformType.ANDROID;
     }
 }

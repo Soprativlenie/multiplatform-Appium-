@@ -30,4 +30,9 @@ public class AndroidPreviewPage extends AbstractPreviewPage {
         return signUpButton;
     }
 
+    @Override
+    protected WebElement alert() {
+        return null;
+    }
+
 }
