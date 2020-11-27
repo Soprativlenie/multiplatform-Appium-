@@ -3,7 +3,7 @@ package com.multiplatformtest.demo.page.ios;/* Created by user on 30.07.20 */
 import com.multiplatformtest.demo.page.AbstractLoginPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSElement;
-import io.appium.java_client.pagefactory.iOSBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 
 
@@ -14,26 +14,36 @@ public class IosLoginPage extends AbstractLoginPage {
     }
 
 
-    @iOSBy( id= "14000000-0000-0000-1F09-000000000000")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[`name == 'FYIO.LogInView'`]/XCUIElementTypeButton")
     private IOSElement backButton;
 
-    @iOSBy()
+    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name = 'LOG IN'")
     private IOSElement loginButton;
 
-    @iOSBy()
+    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name = 'Forgot password?'")
     private IOSElement forgotPasswordButton;
 
-    @iOSBy()
+    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name = 'Contact us'")
     private IOSElement contactUsLink;
 
-    @iOSBy(id = "//XCUIElementTypeApplication[@name=\\\"FYIO\\\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(iOSNsPredicate = "value == 'Email'")
     private IOSElement emailInput;
 
-    @iOSBy(id = "1E000000-0000-0000-1F09-000000000000")
+    @iOSXCUITFindBy(iOSNsPredicate = "value == 'Password'")
     private IOSElement passwordInput;
 
-    @iOSBy()
+    @iOSXCUITFindBy(accessibility = "visibile")
     private IOSElement passwordToggleButton;
+    //TODO: Should be done
+    @iOSXCUITFindBy(id = "Please enter the email you used to register")
+    private IOSElement emailErrorMessageEmptyField;
+
+    @iOSXCUITFindBy(id = "Please enter the email you used to register")
+
+
+    //contains two message(when the password empty/doesn't match the requirement)
+    @iOSXCUITFindBy(id = "Please enter the email you used to register")
+    private IOSElement passwordErrorMessage;
 
 
     @Override

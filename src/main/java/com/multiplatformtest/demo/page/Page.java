@@ -24,34 +24,24 @@ public abstract class Page {
     public Page(AppiumDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 7);
-        this.setDefaultTiming();
+        this.setFastLookTiming();
         action = new TouchAction(driver);
     }
 
     protected void setDefaultTiming() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver, defaultLook), this);
+        initElements(defaultLook);
     }
 
     protected void setFastLookTiming() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver, fastLook), this);
+        initElements(fastLook);
     }
 
-    protected By getLocatorByString(String sourceLocatorWithType) throws IllegalAccessException {
-        String[] locatorWithType = sourceLocatorWithType.split(Pattern.quote(":"), 2);
-        String locatorType = locatorWithType[0];
-        String locator = locatorWithType[1];
-        switch (locatorType) {
-            case "id":
-                return By.id(locator);
-            case "xpath":
-                return By.xpath(locator);
-            default:
-                throw new IllegalAccessException("There is no such locator " + locator);
-
-        }
-    }
 
     protected void waitForElementBecomesVisible(WebElement element) {
         wait.withMessage("Can't see the element " + element).until(ExpectedConditions.visibilityOf(element));
+    }
+
+    private void initElements(Duration duration) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver, duration), this);
     }
 }
