@@ -57,7 +57,7 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
     private AndroidElement passwordAlert;
 
     @AndroidFindBy(id = "android:id/button1")
-    private AndroidElement okButtonOnThePassworAlert;
+    private AndroidElement okButtonOnThePasswordAlert;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/invalidFirstNameTextView")
     private AndroidElement firstNameErrorMessage;
@@ -82,6 +82,9 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
 
     @AndroidFindBy(id = "com.android.chrome:id/close_button")
     private AndroidElement closeButtonOnTheWebView;
+
+    @AndroidFindBy(id = "com.fileforlife.app:id/receiveMarketingContainer")
+    private AndroidElement marketingEmailsCheckbox;
 
     @Override
     protected WebElement firstNameInput() {
@@ -160,7 +163,7 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
 
     @Override
     protected WebElement okButtonOnThePasswordAlert() {
-        return okButtonOnThePassworAlert;
+        return okButtonOnThePasswordAlert;
     }
 
     @Override

@@ -43,6 +43,12 @@ public class AndroidLoginPage extends AbstractLoginPage {
     @AndroidFindBy(id = "com.fileforlife.app:id/invalidPasswordTextView")
     private AndroidElement passwordErrorMessage;
 
+    @AndroidFindBy(id = "com.fileforlife.app:id/contentPanel")
+    private AndroidElement invalidAlertMesssage;
+
+    @AndroidFindBy(id = "android:id/button1")
+    private AndroidElement OkButtonOnInvalidAlertMessage;
+
 
     @Override
     protected AndroidElement emailInput() {
