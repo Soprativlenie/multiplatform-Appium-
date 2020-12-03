@@ -26,7 +26,7 @@ public class IosLoginPage extends AbstractLoginPage {
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name = 'Contact us'")
     private IOSElement contactUsLink;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "value == 'Email'")
+    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeTextField' AND value == 'Email'")
     private IOSElement emailInput;
 
     @iOSXCUITFindBy(iOSNsPredicate = "value == 'Password'")

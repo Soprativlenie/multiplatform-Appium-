@@ -29,12 +29,19 @@ public abstract class AbstractLoginPage extends Page {
 
     public void fillEmailInput(String email) {
         waitForElementBecomesVisible(emailInput());
+        emailInput().click();
+        emailInput().clear();
         emailInput().sendKeys(email);
+        driver.hideKeyboard();
     }
 
     public void fillPasswordInput(String password) {
         waitForElementBecomesVisible(passwordInput());
         passwordInput().sendKeys(password);
+    }
+
+    public String getText() {
+        return emailInput().getText();
     }
 
     public void tapLoginInButton() {

@@ -10,9 +10,11 @@ public class SmokeTest extends TestBase {
     public void should_ReturnUserToPreviewScreen_When_UserTapOnTheBacKButtonOnTheLoginScreen() {
 
         previewPage.tapTheLogInButton();
+        loginPage.fillEmailInput("bla@bla.com");
         loginPage.fillPasswordInput("Zaqwsx21.");
-        loginPage.fillEmailInput("testig@mailinator.com");
-        loginPage.tapBackButton();
+        System.out.println(loginPage.getText());
+//        loginPage.fillEmailInput("testig@mailinator.com");
+//        loginPage.tapBackButton();
 
     }
 

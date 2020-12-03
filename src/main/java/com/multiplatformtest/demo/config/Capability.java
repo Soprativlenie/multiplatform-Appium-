@@ -23,9 +23,30 @@ public class Capability {
 
     private String autoAcceptAlerts;
 
+    private String udid;
+
+    private String noReset;
+
+    public String getUdid() {
+        return udid;
+    }
+
+    public void setUdid(String udid) {
+        this.udid = udid;
+    }
+
+    public String getNoReset() {
+        return noReset;
+    }
+
+    public void setNoReset(String noReset) {
+        this.noReset = noReset;
+    }
+
     public String getAutoAcceptAlerts(){
         return autoAcceptAlerts;
     }
+
     public void setAutoAcceptAlerts(String autoAcceptAlerts){
         this.autoAcceptAlerts = autoAcceptAlerts;
     }

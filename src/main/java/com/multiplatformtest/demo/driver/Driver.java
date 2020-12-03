@@ -40,9 +40,10 @@ public class Driver {
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, capability.getAppPackage());
         capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, capability.getAppActivity());
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, capability.getAutomationName());
-//        capabilities.setCapability(MobileCapabilityType.APP, capability.getApp());
         capabilities.setCapability(MobileCapabilityType.APP, capability.getApp());
         capabilities.setCapability(MobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
+        capabilities.setCapability(MobileCapabilityType.UDID, capability.getUdid());
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         return capabilities;
     }
     public boolean isIosDriverInstalled(){
