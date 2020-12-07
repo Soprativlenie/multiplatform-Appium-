@@ -27,21 +27,22 @@ public abstract class AbstractLoginPage extends Page {
 
     protected abstract WebElement passwordErrorMessage();
 
-    public void fillEmailInput(String email) {
+    protected abstract WebElement getInvalidAlertMessage();
+
+    public AbstractLoginPage fillEmailInput(String email) {
         waitForElementBecomesVisible(emailInput());
         emailInput().click();
         emailInput().clear();
         emailInput().sendKeys(email);
         driver.hideKeyboard();
+        return this;
     }
 
-    public void fillPasswordInput(String password) {
+    public AbstractLoginPage fillPasswordInput(String password) {
         waitForElementBecomesVisible(passwordInput());
         passwordInput().sendKeys(password);
-    }
-
-    public String getText() {
-        return emailInput().getText();
+        driver.hideKeyboard();
+        return this;
     }
 
     public void tapLoginInButton() {
@@ -69,4 +70,27 @@ public abstract class AbstractLoginPage extends Page {
 
         backButton().click();
     }
+
+    public boolean isEmailErrorMessageDisplayed() {
+        waitForElementBecomesVisible(emailErrorMessage());
+        return emailErrorMessage().isDisplayed();
+    }
+
+    public boolean isPasswordErrorMessageDisplayed() {
+        waitForElementBecomesVisible(passwordErrorMessage());
+        return passwordErrorMessage().isDisplayed();
+    }
+
+    public String getPassword() {
+        return passwordInput().getText();
+    }
+    public boolean isInvalidLoginAlertMessageDisplayed(){
+        waitForElementBecomesVisible(getInvalidAlertMessage());
+        return getInvalidAlertMessage().isDisplayed();
+    }
+    public boolean isLogInScreen(){
+        return loginButton().isDisplayed();
+    }
+
+
 }

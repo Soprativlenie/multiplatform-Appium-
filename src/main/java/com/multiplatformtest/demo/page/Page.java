@@ -43,4 +43,6 @@ public abstract class Page {
     private void initElements(Duration duration) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, duration), this);
     }
+
+
 }

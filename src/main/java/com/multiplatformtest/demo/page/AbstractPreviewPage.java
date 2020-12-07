@@ -20,4 +20,8 @@ public abstract class AbstractPreviewPage extends Page {
         signUpButton().click();
     }
 
+    public boolean isPreviewScreen(){
+        return loginButton().isDisplayed();
+    }
+
 }

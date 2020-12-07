@@ -91,4 +91,9 @@ public class IosLoginPage extends AbstractLoginPage {
         return null;
     }
 
+    @Override
+    protected WebElement getInvalidAlertMessage() {
+        return null;
+    }
+
 }

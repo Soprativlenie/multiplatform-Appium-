@@ -1,5 +1,6 @@
 package com.multiplatformtest.demo.config;
 
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 
@@ -109,6 +110,32 @@ public class Capability {
 
     @Override
     public String toString() {
-        return platformName + deviceName + platformVersion + appPackage + appActivity + app + automationName;
+        return "Capability{" +
+                "platformName='" + platformName + '\'' +
+                ", deviceName='" + deviceName + '\'' +
+                ", platformVersion='" + platformVersion + '\'' +
+                ", appPackage='" + appPackage + '\'' +
+                ", appActivity='" + appActivity + '\'' +
+                ", automationName='" + automationName + '\'' +
+                ", app='" + app + '\'' +
+                ", autoAcceptAlerts='" + autoAcceptAlerts + '\'' +
+                ", udid='" + udid + '\'' +
+                ", noReset='" + noReset + '\'' +
+                '}';
+    }
+
+    public DesiredCapabilities getCapabilities() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, getPlatformName());
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, getDeviceName());
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, getPlatformVersion());
+        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, getAppPackage());
+        capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, getAppActivity());
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, getAutomationName());
+        capabilities.setCapability(MobileCapabilityType.APP, getApp());
+        capabilities.setCapability(MobileCapabilityType.AUTO_ACCEPT_ALERTS, getAutoAcceptAlerts());
+        capabilities.setCapability(MobileCapabilityType.UDID, getUdid());
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, getNoReset());
+        return capabilities;
     }
 }

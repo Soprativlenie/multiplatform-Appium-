@@ -28,28 +28,8 @@ public class Driver {
 
     public AppiumDriver setupDriver() {
         return platformType == PlatformType.ANDROID
-                ? new AndroidDriver(appiumUrl, getAndroidCapabilities())
-                : new IOSDriver(appiumUrl, getAndroidCapabilities());
+                ? new AndroidDriver(appiumUrl, capability.getCapabilities())
+                : new IOSDriver(appiumUrl, capability.getCapabilities());
     }
 
-    private DesiredCapabilities getAndroidCapabilities() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, capability.getPlatformName());
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, capability.getDeviceName());
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, capability.getPlatformVersion());
-        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, capability.getAppPackage());
-        capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, capability.getAppActivity());
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, capability.getAutomationName());
-        capabilities.setCapability(MobileCapabilityType.APP, capability.getApp());
-        capabilities.setCapability(MobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
-        capabilities.setCapability(MobileCapabilityType.UDID, capability.getUdid());
-        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-        return capabilities;
-    }
-    public boolean isIosDriverInstalled(){
-        return platformType == PlatformType.IOS;
-    }
-    public boolean isAndroidDriverInstalled(){
-        return platformType == PlatformType.ANDROID;
-    }
 }

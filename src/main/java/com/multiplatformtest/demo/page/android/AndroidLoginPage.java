@@ -76,6 +76,11 @@ public class AndroidLoginPage extends AbstractLoginPage {
     }
 
     @Override
+    protected WebElement getInvalidAlertMessage() {
+        return invalidAlertMesssage;
+    }
+
+    @Override
     protected WebElement backButton() {
         return backButton;
     }

@@ -7,9 +7,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
 public class AndroidResetPasswordPage extends AbstractResetPasswordPage {
-    public AndroidResetPasswordPage(AppiumDriver driver) {
-        super(driver);
-    }
 
     @AndroidFindBy(id = "com.fileforlife.app:id/backImageView")
     private AndroidElement backButton;
@@ -57,6 +54,10 @@ public class AndroidResetPasswordPage extends AbstractResetPasswordPage {
     @Override
     protected WebElement okButtonOnTheNoExistEmailPopup() {
         return okButtonOnTheNoExistEmailPopup;
+    }
+
+    public AndroidResetPasswordPage(AppiumDriver driver) {
+        super(driver);
     }
 
 }

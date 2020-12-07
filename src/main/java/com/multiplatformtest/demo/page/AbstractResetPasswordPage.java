@@ -20,5 +20,31 @@ public abstract class AbstractResetPasswordPage extends Page {
 
     protected abstract WebElement okButtonOnTheNoExistEmailPopup();
 
+    public boolean isResetPasswordScreen() {
+        return confirmButton().isDisplayed();
+    }
+
+    public void tapBackButton() {
+        backButton().click();
+    }
+
+    public AbstractResetPasswordPage fillEmailInput(String email) {
+        waitForElementBecomesVisible(emailInput());
+        emailInput().sendKeys(email);
+        return this;
+    }
+
+    public boolean isEmailErrorMessageDisplayed() {
+        waitForElementBecomesVisible(invalidMessageText());
+        return invalidMessageText().isDisplayed();
+    }
+
+    public void tapConfirmButton(){
+        confirmButton().click();
+    }
+    public boolean isInvalidAlertMessageDisplayed(){
+        return popUpWithNoExistEmailMessage().isDisplayed();
+    }
+
 
 }
