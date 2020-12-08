@@ -82,7 +82,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void should_ShowInvalidAlertMessage_When_UserResetPasswordOfNonExistAccount() {
+    public void should_ShowInvalidAlertMessage_When_UserResetsPasswordOfNonExistAccount() {
         previewPage.tapTheLogInButton();
         loginPage.tapForgotPasswordButton();
         String email = "unknown@fyioemail.com";
@@ -97,8 +97,22 @@ public class SmokeTest extends TestBase {
         String email = "devs@jelvix.com";
         String pass = "Qwerty_123";
         loginPage.fillEmailInput(email)
-                .fillEmailInput(pass)
+                .fillPasswordInput(pass)
                 .tapLoginInButton();
+        Assert.assertTrue(navigationTabBar.isCategoryScreen());
+    }
+
+    @Test
+    public void should_ShowUpgradeButton_When_UserIsNotSubscriber(){
+        previewPage.tapTheLogInButton();
+        String email = "devs@jelvix.com";
+        String pass = "Qwerty_123";
+        loginPage.fillEmailInput(email)
+                .fillPasswordInput(pass)
+                .tapLoginInButton();
+        navigationTabBar.tapSettingsButton();
+        Assert.assertTrue(settingsPage.isFreeUser());
+
     }
 
 

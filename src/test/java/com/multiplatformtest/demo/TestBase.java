@@ -2,16 +2,9 @@ package com.multiplatformtest.demo;
 
 import com.multiplatformtest.demo.driver.Driver;
 import com.multiplatformtest.demo.driver.PlatformType;
-import com.multiplatformtest.demo.page.AbstractLoginPage;
-import com.multiplatformtest.demo.page.AbstractPreviewPage;
-import com.multiplatformtest.demo.page.AbstractResetPasswordPage;
-import com.multiplatformtest.demo.page.AbstractSignUpPage;
-import com.multiplatformtest.demo.page.android.AndroidLoginPage;
-import com.multiplatformtest.demo.page.android.AndroidPreviewPage;
-import com.multiplatformtest.demo.page.android.AndroidResetPasswordPage;
-import com.multiplatformtest.demo.page.ios.IosLoginPage;
-import com.multiplatformtest.demo.page.ios.IosPreviewPage;
-import com.multiplatformtest.demo.page.ios.IosResetPasswordPage;
+import com.multiplatformtest.demo.page.*;
+import com.multiplatformtest.demo.page.android.*;
+import com.multiplatformtest.demo.page.ios.*;
 import io.appium.java_client.AppiumDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,6 +30,8 @@ class TestBase extends AbstractTestNGSpringContextTests {
     protected AbstractPreviewPage previewPage;
     protected AbstractSignUpPage signUpPage;
     protected AbstractResetPasswordPage resetPasswordPage;
+    protected AbstractNavigationTabBar navigationTabBar;
+    protected AbstractSettingsPage settingsPage;
 
     @BeforeClass
     public void setup() throws MalformedURLException {
@@ -45,6 +40,8 @@ class TestBase extends AbstractTestNGSpringContextTests {
         previewPage = platformType == PlatformType.ANDROID ? new AndroidPreviewPage(appiumDriver) : new IosPreviewPage(appiumDriver);
         loginPage = platformType == PlatformType.ANDROID ? new AndroidLoginPage(appiumDriver) : new IosLoginPage(appiumDriver);
         resetPasswordPage = platformType == PlatformType.ANDROID ? new AndroidResetPasswordPage(appiumDriver) : new IosResetPasswordPage(appiumDriver);
+        navigationTabBar = platformType == PlatformType.ANDROID ? new AndroidNavigationTabBar(appiumDriver) : new IosNavigationTabBar(appiumDriver);
+        settingsPage = platformType == PlatformType.ANDROID ? new AndroidSettingsPage(appiumDriver) : new IosSettingsPage(appiumDriver);
 
     }
 
@@ -60,7 +57,9 @@ class TestBase extends AbstractTestNGSpringContextTests {
 
     @AfterClass
     public void tearDown() {
-        appiumDriver.quit();
+        if (driver != null) {
+            appiumDriver.quit();
+        }
     }
 
 }
