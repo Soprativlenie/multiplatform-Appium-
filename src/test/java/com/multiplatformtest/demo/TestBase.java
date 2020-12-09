@@ -39,6 +39,7 @@ class TestBase extends AbstractTestNGSpringContextTests {
 
         previewPage = platformType == PlatformType.ANDROID ? new AndroidPreviewPage(appiumDriver) : new IosPreviewPage(appiumDriver);
         loginPage = platformType == PlatformType.ANDROID ? new AndroidLoginPage(appiumDriver) : new IosLoginPage(appiumDriver);
+        signUpPage = platformType == PlatformType.ANDROID ? new AndroidSignUpPage(appiumDriver) : new IosSignUpPage(appiumDriver);
         resetPasswordPage = platformType == PlatformType.ANDROID ? new AndroidResetPasswordPage(appiumDriver) : new IosResetPasswordPage(appiumDriver);
         navigationTabBar = platformType == PlatformType.ANDROID ? new AndroidNavigationTabBar(appiumDriver) : new IosNavigationTabBar(appiumDriver);
         settingsPage = platformType == PlatformType.ANDROID ? new AndroidSettingsPage(appiumDriver) : new IosSettingsPage(appiumDriver);

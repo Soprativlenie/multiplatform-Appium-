@@ -6,6 +6,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
+
 public class AndroidSignUpPage extends AbstractSignUpPage {
     public AndroidSignUpPage(AppiumDriver driver) {
         super(driver);
@@ -205,4 +206,6 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
     protected WebElement closeButtonOnTheWebView() {
         return closeButtonOnTheWebView;
     }
+
+
 }

@@ -102,8 +102,8 @@ public class SmokeTest extends TestBase {
         Assert.assertTrue(navigationTabBar.isCategoryScreen());
     }
 
-    @Test
-    public void should_ShowUpgradeButton_When_UserIsNotSubscriber(){
+    @Test //TODO
+    public void should_ShowUpgradeButton_When_UserIsNotSubscriber() {
         previewPage.tapTheLogInButton();
         String email = "devs@jelvix.com";
         String pass = "Qwerty_123";
@@ -112,7 +112,13 @@ public class SmokeTest extends TestBase {
                 .tapLoginInButton();
         navigationTabBar.tapSettingsButton();
         Assert.assertTrue(settingsPage.isFreeUser());
+    }
 
+    @Test
+    public void should_scrollThePage() throws InterruptedException {
+        previewPage.tapTheSignUpButton();
+        signUpPage.swipeUp();
+        Thread.sleep(5000);
     }
 
 

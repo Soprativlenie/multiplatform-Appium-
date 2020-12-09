@@ -1,8 +1,16 @@
 package com.multiplatformtest.demo.page;/* Created by user on 29.10.20 */
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.time.Duration;
+import java.util.HashMap;
 
 public abstract class AbstractSignUpPage extends Page {
     public AbstractSignUpPage(AppiumDriver driver) {
@@ -184,4 +192,80 @@ public abstract class AbstractSignUpPage extends Page {
         return builder.append(domain).toString();
 
     }
+
+    public void swipeUp() {
+        Dimension size = driver.manage().window().getSize();
+//        int centerByX = size.width / 2;
+//        int topByY = (int) (size.height * 0.6);
+//        int BottomByY = (int) (size.height * 0.4);
+
+
+
+        WaitOptions options = new WaitOptions();
+
+
+        try {
+            action.press(PointOption.point(534, 958)).waitAction(options.withDuration(Duration.ofSeconds(1)))
+                    .moveTo(PointOption.point(534, 958)).release().perform();
+        } catch (Exception ex){
+            System.err.println("swipeUp(): TouchAction FAILED" + ex.getMessage());
+        }
+
+    }
+
+    public void scroll() {
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            HashMap<String, String> scrollObject = new HashMap<>();
+            scrollObject.put("direction", "up");
+            js.executeScript("mobile:scroll", scrollObject);
+            System.out.println("Swipe up was Successfully done.");
+        } catch (Exception e) {
+            System.out.println("swipe up was not successfully");
+        }
+    }
+
+    public void appiumSwipe(String direction) {
+        System.out.println("swipeScreen(): direction: '" + direction + "'"); // log actions
+
+        final int ANIMATION_TIME = 200; //ms
+        final int PRESS_TIME = 200; //ms
+
+        int edgeBorder = 10; //avoid edges
+        PointOption pointOptionStart;
+        PointOption pointOptionEnd;
+
+        Dimension dimension = driver.manage().window().getSize(); //getting screen size
+
+        pointOptionStart = PointOption.point(dimension.width / 2, dimension.height / 2); //center of the screen
+
+        switch (direction) {
+            case "DOWN": //center of footer
+                pointOptionEnd = PointOption.point(dimension.width / 2, dimension.height / 2 - edgeBorder);
+                break;
+            case "UP": //center of header
+                pointOptionEnd = PointOption.point(dimension.width / 2, edgeBorder);
+                break;
+            default:
+                throw new IllegalArgumentException("swipeScreen(): dir: '" + direction + "' NOT supported");
+        }
+
+        //swipe using TouchAction
+        try {
+            new TouchAction(driver)
+                    .press(pointOptionStart)
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(PRESS_TIME)))
+                    .moveTo(pointOptionEnd)
+                    .release().perform();
+        } catch (Exception ex) {
+            System.err.println("swipeScreen(): TouchAction FAILED" + ex.getMessage());
+            return;
+        }
+        try {
+            Thread.sleep(ANIMATION_TIME);
+        } catch (InterruptedException e) {
+            // ignore
+        }
+    }
 }
+
