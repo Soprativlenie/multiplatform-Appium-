@@ -34,8 +34,25 @@ public class AndroidSettingsPage extends AbstractSettingsPage {
     @AndroidFindBy(id = "com.fileforlife.app:id/upgradeButton")
     private AndroidElement upgradeButton;
 
+    @AndroidFindBy(id = "com.fileforlife.app:id/facebookImageView")
+    private AndroidElement facebookButton;
+
+    @AndroidFindBy(id = "com.fileforlife.app:id/instagramImageView")
+    private AndroidElement instagramButton;
+
+    @AndroidFindBy(id = "com.fileforlife.app:id/twitterImageView")
+    private AndroidElement twitterButton;
+
+    @AndroidFindBy(xpath = "//*[@text='Settings']")
+    private AndroidElement titleOfTheScreen;
+
     public AndroidSettingsPage(AppiumDriver driver) {
         super(driver);
+    }
+
+    @Override
+    protected WebElement geTitleOfTheScreen() {
+        return titleOfTheScreen;
     }
 
     @Override
@@ -81,5 +98,20 @@ public class AndroidSettingsPage extends AbstractSettingsPage {
     @Override
     protected WebElement getUpgradeButton() {
         return upgradeButton;
+    }
+
+    @Override
+    protected WebElement getFacebookButton() {
+        return facebookButton;
+    }
+
+    @Override
+    protected WebElement getInstagramButton() {
+        return instagramButton;
+    }
+
+    @Override
+    protected WebElement getTwitterButton() {
+        return twitterButton;
     }
 }

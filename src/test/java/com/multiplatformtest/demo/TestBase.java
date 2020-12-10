@@ -32,6 +32,7 @@ class TestBase extends AbstractTestNGSpringContextTests {
     protected AbstractResetPasswordPage resetPasswordPage;
     protected AbstractNavigationTabBar navigationTabBar;
     protected AbstractSettingsPage settingsPage;
+    protected AbstractCategoryPage categoryPage;
 
     @BeforeClass
     public void setup() throws MalformedURLException {
@@ -43,6 +44,7 @@ class TestBase extends AbstractTestNGSpringContextTests {
         resetPasswordPage = platformType == PlatformType.ANDROID ? new AndroidResetPasswordPage(appiumDriver) : new IosResetPasswordPage(appiumDriver);
         navigationTabBar = platformType == PlatformType.ANDROID ? new AndroidNavigationTabBar(appiumDriver) : new IosNavigationTabBar(appiumDriver);
         settingsPage = platformType == PlatformType.ANDROID ? new AndroidSettingsPage(appiumDriver) : new IosSettingsPage(appiumDriver);
+        categoryPage = platformType == PlatformType.ANDROID ? new AndroidCategoryPage(appiumDriver) : new IosCategoryPage(appiumDriver);
 
     }
 

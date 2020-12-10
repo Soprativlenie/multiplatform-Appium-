@@ -1,11 +1,9 @@
 package com.multiplatformtest.demo.driver;/* Created by user on 28.10.20 */
 
 import com.multiplatformtest.demo.config.Capability;
-import com.multiplatformtest.demo.config.MobileCapabilityType;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 

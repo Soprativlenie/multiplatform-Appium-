@@ -10,6 +10,11 @@ public class IosSettingsPage extends AbstractSettingsPage {
     }
 
     @Override
+    protected WebElement geTitleOfTheScreen() {
+        return null;
+    }
+
+    @Override
     protected WebElement getSearchButton() {
         return null;
     }
@@ -51,6 +56,21 @@ public class IosSettingsPage extends AbstractSettingsPage {
 
     @Override
     protected WebElement getUpgradeButton() {
+        return null;
+    }
+
+    @Override
+    protected WebElement getFacebookButton() {
+        return null;
+    }
+
+    @Override
+    protected WebElement getInstagramButton() {
+        return null;
+    }
+
+    @Override
+    protected WebElement getTwitterButton() {
         return null;
     }
 }

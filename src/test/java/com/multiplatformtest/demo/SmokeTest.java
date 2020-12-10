@@ -114,11 +114,62 @@ public class SmokeTest extends TestBase {
         Assert.assertTrue(settingsPage.isFreeUser());
     }
 
+    @Test(enabled = false)//TODO: Add facebook site in browser is opened assert
+    public void should_OpenTheFacebookWebSite_When_UserTapsTheFacebookButtonOnTheSettingsScreen() {
+        previewPage.tapTheLogInButton();
+        String email = "devs@jelvix.com";
+        String pass = "Qwerty_123";
+        loginPage.fillEmailInput(email)
+                .fillPasswordInput(pass)
+                .tapLoginInButton();
+        navigationTabBar.tapSettingsButton();
+        settingsPage.swipeUp();
+        settingsPage.swipeUp();
+        settingsPage.tapFacebookButton();
+    }
+
+    @Test(enabled = false)//TODO: Add instagram site in browser is opened assert
+    public void should_OpenTheFacebookWebSite_When_UserTapsTheInstagramButtonOnTheSettingsScreen() {
+        previewPage.tapTheLogInButton();
+        String email = "devs@jelvix.com";
+        String pass = "Qwerty_123";
+        loginPage.fillEmailInput(email)
+                .fillPasswordInput(pass)
+                .tapLoginInButton();
+        navigationTabBar.tapSettingsButton();
+        settingsPage.swipeUp();
+        settingsPage.swipeUp();
+        settingsPage.tapInstagramButton();
+    }
+
+    @Test(enabled = true)//TODO: Add twitter site in browser is opened assert
+    public void should_OpenTheFacebookWebSite_When_UserTapsTheTwitterButtonOnTheSettingsScreen() {
+        previewPage.tapTheLogInButton();
+        String email = "devs@jelvix.com";
+        String pass = "Qwerty_123";
+        loginPage.fillEmailInput(email)
+                .fillPasswordInput(pass)
+                .tapLoginInButton();
+        navigationTabBar.tapSettingsButton();
+        settingsPage.swipeUp();
+        settingsPage.swipeUp();
+        settingsPage.tapTwitterButton();
+    }
+
     @Test
-    public void should_scrollThePage() throws InterruptedException {
-        previewPage.tapTheSignUpButton();
-        signUpPage.swipeUp();
-        Thread.sleep(5000);
+    public void should_ScrollCategoryPage() throws InterruptedException {
+        previewPage.tapTheLogInButton();
+        String email = "devs@jelvix.com";
+        String pass = "Qwerty_123";
+        loginPage.fillEmailInput(email)
+                .fillPasswordInput(pass)
+                .tapLoginInButton();
+        categoryPage.swipeUp();
+        categoryPage.swipeUp();
+        categoryPage.swipeUp();
+        categoryPage.swipeUp();
+        categoryPage.swipeUp();
+
     }
 
 

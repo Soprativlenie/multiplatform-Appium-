@@ -195,19 +195,16 @@ public abstract class AbstractSignUpPage extends Page {
 
     public void swipeUp() {
         Dimension size = driver.manage().window().getSize();
-//        int centerByX = size.width / 2;
-//        int topByY = (int) (size.height * 0.6);
-//        int BottomByY = (int) (size.height * 0.4);
-
-
+        int centerByX = size.width / 2;
+        int topByY = (int) (size.height * 0.8);
+        int BottomByY = (int) (size.height * 0.2);
 
         WaitOptions options = new WaitOptions();
 
-
         try {
-            action.press(PointOption.point(534, 958)).waitAction(options.withDuration(Duration.ofSeconds(1)))
-                    .moveTo(PointOption.point(534, 958)).release().perform();
-        } catch (Exception ex){
+            action.press(PointOption.point(centerByX, topByY)).waitAction(options.withDuration(Duration.ofSeconds(1)))
+                    .moveTo(PointOption.point(centerByX, BottomByY)).release().perform();
+        } catch (Exception ex) {
             System.err.println("swipeUp(): TouchAction FAILED" + ex.getMessage());
         }
 

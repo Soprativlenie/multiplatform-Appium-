@@ -18,7 +18,7 @@ public abstract class Page {
 
     protected AppiumDriver driver;
     protected static WebDriverWait wait;
-    protected static TouchAction action;
+    static TouchAction action;
     private Duration defaultLook = Duration.ofSeconds(20); //default look for elements
     private Duration fastLook = Duration.ofSeconds(7); // wait for 7 sec
 
@@ -26,7 +26,7 @@ public abstract class Page {
     public Page(AppiumDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 7);
-        this.setFastLookTiming();
+        this.setDefaultTiming();
         action = new TouchAction(driver);
     }
 
@@ -46,5 +46,7 @@ public abstract class Page {
     private void initElements(Duration duration) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, duration), this);
     }
+
+
 
 }
