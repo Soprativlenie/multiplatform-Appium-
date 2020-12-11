@@ -61,28 +61,6 @@ public abstract class AbstractSettingsPage extends Page {
     public void tapTwitterButton() {
         getTwitterButton().click();
     }
-    public void swipeUp() {
-        final int ANIMATION_TIME = 200; //ms
-        Dimension size = driver.manage().window().getSize();
-        int centerByX = size.width / 2;
-        int topByY = (int) (size.height * 0.8);
-        int BottomByY = (int) (size.height * 0.2);
 
-        WaitOptions options = new WaitOptions();
-
-        try {
-
-            new TouchAction(driver).press(PointOption.point(centerByX, topByY)).waitAction(options.withDuration(Duration.ofMillis(200)))
-                    .moveTo(PointOption.point(centerByX, BottomByY)).release().perform();
-        } catch (Exception ex) {
-            System.err.println("swipeUp(): TouchAction FAILED" + ex.getMessage());
-        }
-//        waitForElementBecomesVisible(getFacebookButton());
-//        try {
-//            Thread.sleep(ANIMATION_TIME);
-//        } catch (InterruptedException e) {
-//            // ignore
-//        }
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.multiplatformtest.demo;
 
+import com.multiplatformtest.demo.page.Direction;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -156,7 +157,7 @@ public class SmokeTest extends TestBase {
         settingsPage.tapTwitterButton();
     }
 
-    @Test
+    @Test(description = "test scroll", enabled = false)
     public void should_ScrollCategoryPage() throws InterruptedException {
         previewPage.tapTheLogInButton();
         String email = "devs@jelvix.com";
@@ -169,8 +170,22 @@ public class SmokeTest extends TestBase {
         categoryPage.swipeUp();
         categoryPage.swipeUp();
         categoryPage.swipeUp();
-
     }
+
+    @Test
+    public void should_DisplayTheMainImageOfTheCategoryScreen_When_UserIsOnTheCategoryScreen(){
+        previewPage.tapTheLogInButton();
+        String email = "devs@jelvix.com";
+        String pass = "Qwerty_123";
+        loginPage.fillEmailInput(email)
+                .fillPasswordInput(pass)
+        .tapLoginInButton();
+        categoryPage.swipeScreen(Direction.UP);
+        categoryPage.swipeScreen(Direction.UP);
+        categoryPage.swipeScreen(Direction.UP);
+    }
+
+
 
 
 }

@@ -5,39 +5,38 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
+import java.util.List;
 
 public abstract class AbstractCategoryPage extends Page {
+
+    protected abstract WebElement getSearchButton();
+
+    protected abstract WebElement getMainImage();
+
+    protected abstract List<WebElement> categories();
+
+    protected abstract WebElement getBackButton();
+
+    protected abstract WebElement getCategoryImage();
 
     public AbstractCategoryPage(AppiumDriver driver) {
         super(driver);
     }
 
-    public void swipeUp() {
-        final int PRESS_TIME = 200; //ms
-        final int ANIMATION_TIME = 200; //ms
-        Dimension size = driver.manage().window().getSize();
-        int centerByX = size.width / 2;
-        int topByY = (int) (size.height * 0.7);
-        int BottomByY = (int) (size.height * 0.3);
-
-        WaitOptions options = new WaitOptions();
-
-        try {
-
-            new TouchAction(driver).press(PointOption.point(centerByX, topByY))
-                    .waitAction(options.withDuration(Duration.ofMillis(PRESS_TIME)))
-                    .moveTo(PointOption.point(centerByX, BottomByY)).release().perform();
-        } catch (Exception ex) {
-            System.err.println("swipeUp(): TouchAction FAILED" + ex.getMessage());
+    public boolean isMainImagesDisplayInsideEachCategoryScreen() {
+        for (WebElement category : categories()) {
+            category.click();
+            System.out.println("I'm in");
+            waitForElementBecomesVisible(getCategoryImage());
+            System.out.println("I'm waiting");
+            getBackButton().click();
+            waitForElementBecomesVisible(getMainImage());
+            System.out.println("Get back to the previous screen");
         }
-
-//        waitForElementBecomesVisible(getFacebookButton());
-//        try {
-//            Thread.sleep(ANIMATION_TIME);
-//        } catch (InterruptedException e) {
-//            // ignore
-//        }
+        return true;
     }
+
 }

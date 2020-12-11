@@ -3,9 +3,6 @@ package com.multiplatformtest.demo.page;/* Created by user on 29.07.20 */
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,9 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-public abstract class Page {
+public abstract class Page implements Swipeable {
 
-    protected AppiumDriver driver;
+    protected static AppiumDriver driver;
     protected static WebDriverWait wait;
     static TouchAction action;
     private Duration defaultLook = Duration.ofSeconds(20); //default look for elements
