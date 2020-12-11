@@ -1,13 +1,9 @@
 package com.multiplatformtest.demo.page;/* Created by user on 08.12.20 */
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 
-import java.time.Duration;
+
 import java.util.List;
 
 public abstract class AbstractCategoryPage extends Page {
@@ -26,17 +22,22 @@ public abstract class AbstractCategoryPage extends Page {
         super(driver);
     }
 
-    public boolean isMainImagesDisplayInsideEachCategoryScreen() {
-        for (WebElement category : categories()) {
-            category.click();
-            System.out.println("I'm in");
+    public boolean isMainImageDisplayedOnCategoryScreen() {
+        return getMainImage().isDisplayed();
+    }
+
+    public void openCategory() throws InterruptedException {
+        System.out.println(categories());
+        for (WebElement element : categories()){
+            element.click();
+            System.out.println("I am taping " + element);
             waitForElementBecomesVisible(getCategoryImage());
-            System.out.println("I'm waiting");
+            System.out.println("Waiting for element");
             getBackButton().click();
-            waitForElementBecomesVisible(getMainImage());
-            System.out.println("Get back to the previous screen");
+            System.out.println("Back button tapped");
+            Thread.sleep(3000);
         }
-        return true;
+
     }
 
 }

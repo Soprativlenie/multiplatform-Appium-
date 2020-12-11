@@ -27,11 +27,11 @@ public abstract class Page implements Swipeable {
         action = new TouchAction(driver);
     }
 
-    protected void setDefaultTiming() {
+    private void setDefaultTiming() {
         initElements(defaultLook);
     }
 
-    protected void setFastLookTiming() {
+    private void setFastLookTiming() {
         initElements(fastLook);
     }
 

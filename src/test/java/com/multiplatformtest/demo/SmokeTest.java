@@ -124,8 +124,8 @@ public class SmokeTest extends TestBase {
                 .fillPasswordInput(pass)
                 .tapLoginInButton();
         navigationTabBar.tapSettingsButton();
-        settingsPage.swipeUp();
-        settingsPage.swipeUp();
+        settingsPage.swipeScreen(Direction.UP);
+        settingsPage.swipeScreen(Direction.UP);
         settingsPage.tapFacebookButton();
     }
 
@@ -138,8 +138,8 @@ public class SmokeTest extends TestBase {
                 .fillPasswordInput(pass)
                 .tapLoginInButton();
         navigationTabBar.tapSettingsButton();
-        settingsPage.swipeUp();
-        settingsPage.swipeUp();
+        settingsPage.swipeScreen(Direction.UP);
+        settingsPage.swipeScreen(Direction.UP);
         settingsPage.tapInstagramButton();
     }
 
@@ -152,8 +152,8 @@ public class SmokeTest extends TestBase {
                 .fillPasswordInput(pass)
                 .tapLoginInButton();
         navigationTabBar.tapSettingsButton();
-        settingsPage.swipeUp();
-        settingsPage.swipeUp();
+        settingsPage.swipeScreen(Direction.UP);
+        settingsPage.swipeScreen(Direction.UP);
         settingsPage.tapTwitterButton();
     }
 
@@ -165,25 +165,24 @@ public class SmokeTest extends TestBase {
         loginPage.fillEmailInput(email)
                 .fillPasswordInput(pass)
                 .tapLoginInButton();
-        categoryPage.swipeUp();
-        categoryPage.swipeUp();
-        categoryPage.swipeUp();
-        categoryPage.swipeUp();
-        categoryPage.swipeUp();
+        categoryPage.swipeScreen(Direction.UP);
+        categoryPage.swipeScreen(Direction.UP);
+        categoryPage.swipeScreen(Direction.UP);
     }
 
     @Test
-    public void should_DisplayTheMainImageOfTheCategoryScreen_When_UserIsOnTheCategoryScreen(){
+    public void should_DisplayTheMainImageOfTheCategoryScreen_When_UserIsOnTheCategoryScreen() throws InterruptedException {
         previewPage.tapTheLogInButton();
         String email = "devs@jelvix.com";
         String pass = "Qwerty_123";
         loginPage.fillEmailInput(email)
                 .fillPasswordInput(pass)
         .tapLoginInButton();
-        categoryPage.swipeScreen(Direction.UP);
-        categoryPage.swipeScreen(Direction.UP);
-        categoryPage.swipeScreen(Direction.UP);
+        categoryPage.openCategory();
+//        Assert.assertTrue(categoryPage.isMainImageDisplayedOnCategoryScreen());
     }
+
+
 
 
 
