@@ -4,13 +4,10 @@ import com.multiplatformtest.demo.page.AbstractResetPasswordPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-
-import java.util.List;
+import org.openqa.selenium.WebElement;
 
 public class AndroidResetPasswordPage extends AbstractResetPasswordPage {
-    public AndroidResetPasswordPage(AppiumDriver driver) {
-        super(driver);
-    }
+
     @AndroidFindBy(id = "com.fileforlife.app:id/backImageView")
     private AndroidElement backButton;
 
@@ -20,18 +17,47 @@ public class AndroidResetPasswordPage extends AbstractResetPasswordPage {
     @AndroidFindBy(id = "com.fileforlife.app:id/confirmButton")
     private AndroidElement confirmButton;
 
-    @AndroidFindBy(id = "com.fileforlife.app:id/termsConditionsTextView")
-    private AndroidElement termsButton;
-
     @AndroidFindBy(id = "com.fileforlife.app:id/invalidEmailTextView")
     private AndroidElement invalidMessageText;
 
-    @AndroidFindBy(className = "android.widget.TextView")
-    private List<AndroidElement> textViews;
+    @AndroidFindBy(id = "android:id/message")
+    private AndroidElement popUpWithNoExistEmailMessage;
 
-    @AndroidFindBy(className = "android.widget.IamgeView")
-    private List<AndroidElement> imageViews;
+    @AndroidFindBy(id = "android:id/button1")
+    private AndroidElement okButtonOnTheNoExistEmailPopup;
 
-    @AndroidFindBy(className = "android.widget.EditText")
-    private List<AndroidElement> inputs;
+    @Override
+    protected WebElement getBackButton() {
+        return backButton;
+    }
+
+    @Override
+    protected WebElement getEmailInput() {
+        return emailInput;
+    }
+
+    @Override
+    protected WebElement getConfirmButton() {
+        return confirmButton;
+    }
+
+    @Override
+    protected WebElement getInvalidMessageText() {
+        return invalidMessageText;
+    }
+
+    @Override
+    protected WebElement getPopUpWithNoExistEmailMessage() {
+        return popUpWithNoExistEmailMessage;
+    }
+
+    @Override
+    protected WebElement getOkButtonOnTheNoExistEmailPopup() {
+        return okButtonOnTheNoExistEmailPopup;
+    }
+
+    public AndroidResetPasswordPage(AppiumDriver driver) {
+        super(driver);
+    }
+
 }

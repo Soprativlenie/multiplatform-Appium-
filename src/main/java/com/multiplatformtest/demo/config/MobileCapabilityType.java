@@ -1,4 +1,4 @@
-package com.multiplatformtest.demo.model;/* Created by user on 30.07.20 */
+package com.multiplatformtest.demo.config;/* Created by user on 30.07.20 */
 
 public interface MobileCapabilityType {
     String AUTOMATION_NAME = "automationName";
@@ -21,4 +21,5 @@ public interface MobileCapabilityType {
     String APP_PACKAGE = "appPackage";
     String APP_ACTIVITY = "appActivity";
     String PLATFORM_NAME = "platformName";
+    String AUTO_ACCEPT_ALERTS = "autoAcceptAlerts";
 }

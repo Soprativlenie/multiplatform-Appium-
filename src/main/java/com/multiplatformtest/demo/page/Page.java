@@ -3,18 +3,19 @@ package com.multiplatformtest.demo.page;/* Created by user on 29.07.20 */
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.regex.Pattern;
 
-public abstract class Page {
 
-    protected AppiumDriver driver;
+public abstract class Page implements Swipeable {
+
+    protected static AppiumDriver driver;
     protected static WebDriverWait wait;
-    protected static TouchAction action;
+    static TouchAction action;
     private Duration defaultLook = Duration.ofSeconds(20); //default look for elements
     private Duration fastLook = Duration.ofSeconds(7); // wait for 7 sec
 
@@ -26,26 +27,22 @@ public abstract class Page {
         action = new TouchAction(driver);
     }
 
-    protected void setDefaultTiming() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver, defaultLook), this);
+    private void setDefaultTiming() {
+        initElements(defaultLook);
     }
 
-    protected void setFastLookTiming() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver, fastLook), this);
+    private void setFastLookTiming() {
+        initElements(fastLook);
     }
 
-    protected By getLocatorByString(String sourceLocatorWithType) throws IllegalAccessException {
-        String[] locatorWithType = sourceLocatorWithType.split(Pattern.quote(":"), 2);
-        String locatorType = locatorWithType[0];
-        String locator = locatorWithType[1];
-        switch (locatorType) {
-            case "id":
-                return By.id(locator);
-            case "xpath":
-                return By.xpath(locator);
-            default:
-                throw new IllegalAccessException("There is no such locator " + locator);
 
-        }
+    protected void waitForElementBecomesVisible(WebElement element) {
+        wait.withMessage("Can't see the element " + element).until(ExpectedConditions.visibilityOf(element));
     }
+
+    private void initElements(Duration duration) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver, duration), this);
+    }
+
+
 }

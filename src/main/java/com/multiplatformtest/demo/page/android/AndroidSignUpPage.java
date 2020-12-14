@@ -4,11 +4,14 @@ import com.multiplatformtest.demo.page.AbstractSignUpPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.WebElement;
+
 
 public class AndroidSignUpPage extends AbstractSignUpPage {
     public AndroidSignUpPage(AppiumDriver driver) {
         super(driver);
     }
+
     @AndroidFindBy(id = "com.fileforlife.app:id/firstNameSignUpEditText")
     private AndroidElement firstNameInput;
 
@@ -34,16 +37,16 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
     private AndroidElement receiveNewsLetterCheckbox;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/passwordCheckBox")
-    public AndroidElement passwordCheckbox;
+    private AndroidElement passwordCheckbox;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/confirmPasswordCheckBox")
-    public AndroidElement confirmPasswordCheckbox;
+    private AndroidElement confirmPasswordCheckbox;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/backImageView")
-    public AndroidElement backButton;
+    private AndroidElement backButton;
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Sign Up')]")
-    public AndroidElement signUpTextView;
+    private AndroidElement signUpTextView;
 
     @AndroidFindBy(id = "android:id/datePicker")
     private AndroidElement datePicker;
@@ -55,7 +58,7 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
     private AndroidElement passwordAlert;
 
     @AndroidFindBy(id = "android:id/button1")
-    private AndroidElement okButtonOnThePassworAlert;
+    private AndroidElement okButtonOnThePasswordAlert;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/invalidFirstNameTextView")
     private AndroidElement firstNameErrorMessage;
@@ -80,4 +83,129 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
 
     @AndroidFindBy(id = "com.android.chrome:id/close_button")
     private AndroidElement closeButtonOnTheWebView;
+
+    @AndroidFindBy(id = "com.fileforlife.app:id/receiveMarketingContainer")
+    private AndroidElement marketingEmailsCheckbox;
+
+    @Override
+    protected WebElement getFirstNameInput() {
+        return firstNameInput;
+    }
+
+    @Override
+    protected WebElement getLastNameInput() {
+        return lastNameInput;
+    }
+
+    @Override
+    protected WebElement getEmailInput() {
+        return emailInput;
+    }
+
+    @Override
+    protected WebElement getDateOfBirthInput() {
+        return dateOfBirthInput;
+    }
+
+    @Override
+    protected WebElement getPasswordInput() {
+        return passwordInput;
+    }
+
+    @Override
+    protected WebElement getConfirmPasswordInput() {
+        return confirmPasswordInput;
+    }
+
+    @Override
+    protected WebElement getSignUpButton() {
+        return signUpButton;
+    }
+
+    @Override
+    protected WebElement getReceiveNewsLetterCheckbox() {
+        return receiveNewsLetterCheckbox;
+    }
+
+    @Override
+    protected WebElement getPasswordCheckbox() {
+        return passwordCheckbox;
+    }
+
+    @Override
+    protected WebElement getConfirmPasswordCheckbox() {
+        return confirmPasswordCheckbox;
+    }
+
+    @Override
+    protected WebElement getBackButton() {
+        return backButton;
+    }
+
+    @Override
+    protected WebElement getSignUpTextView() {
+        return signUpTextView;
+    }
+
+    @Override
+    protected WebElement getDatePicker() {
+        return datePicker;
+    }
+
+    @Override
+    protected WebElement getDatePickerOkButton() {
+        return datePickerOkButton;
+    }
+
+    @Override
+    protected WebElement getPasswordAlert() {
+        return passwordAlert;
+    }
+
+    @Override
+    protected WebElement getOkButtonOnThePasswordAlert() {
+        return okButtonOnThePasswordAlert;
+    }
+
+    @Override
+    protected WebElement getFirstNameErrorMessage() {
+        return firstNameErrorMessage;
+    }
+
+    @Override
+    protected WebElement getLastNameErrorMessage() {
+        return lastNameErrorMessage;
+    }
+
+    @Override
+    protected WebElement getEmailErrorMessage() {
+        return emailErrorMessage;
+    }
+
+    @Override
+    protected WebElement getDateOfBirthErrorMessage() {
+        return dateOfBirthErrorMessage;
+    }
+
+    @Override
+    protected WebElement getPasswordErrorMessage() {
+        return passwordErrorMessage;
+    }
+
+    @Override
+    protected WebElement getConfirmPasswordErrorMessage() {
+        return confirmPasswordErrorMessage;
+    }
+
+    @Override
+    protected WebElement getPrivacyLink() {
+        return privacyLink;
+    }
+
+    @Override
+    protected WebElement getCloseButtonOnTheWebView() {
+        return closeButtonOnTheWebView;
+    }
+
+
 }

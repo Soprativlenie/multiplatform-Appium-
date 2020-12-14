@@ -6,9 +6,6 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-
 public class AndroidLoginPage extends AbstractLoginPage {
 
     public AndroidLoginPage(AppiumDriver driver) {
@@ -36,39 +33,67 @@ public class AndroidLoginPage extends AbstractLoginPage {
     @AndroidFindBy(id = "com.fileforlife.app:id/passwordCheckBox")
     private AndroidElement passwordToggleButton;
 
+    @AndroidFindBy(id = "com.fileforlife.app:id/invalidEmailTextView")
+    private AndroidElement emailErrorMessage;
+
+    //contains two message(when the password empty/doesn't match the requirement)
+    @AndroidFindBy(id = "com.fileforlife.app:id/invalidPasswordTextView")
+    private AndroidElement passwordErrorMessage;
+
+    @AndroidFindBy(id = "com.fileforlife.app:id/contentPanel")
+    private AndroidElement invalidAlertMesssage;
+
+    @AndroidFindBy(id = "android:id/button1")
+    private AndroidElement OkButtonOnInvalidAlertMessage;
+
 
     @Override
-    protected AndroidElement emailInput() {
+    protected AndroidElement getEmailInput() {
         return emailInput;
     }
 
     @Override
-    protected WebElement passwordInput() {
+    protected WebElement getPasswordInput() {
         return passwordInput;
     }
 
     @Override
-    protected WebElement passwordToggleButton() {
+    protected WebElement getPasswordToggleButton() {
         return passwordToggleButton;
     }
 
     @Override
-    protected WebElement backButton() {
+    protected WebElement getEmailErrorMessage() {
+        return emailErrorMessage;
+    }
+
+    @Override
+    protected WebElement getPasswordErrorMessage() {
+        return passwordErrorMessage;
+    }
+
+    @Override
+    protected WebElement getInvalidAlertMessage() {
+        return invalidAlertMesssage;
+    }
+
+    @Override
+    protected WebElement getBackButton() {
         return backButton;
     }
 
     @Override
-    protected WebElement loginButton() {
+    protected WebElement getLoginButton() {
         return loginButton;
     }
 
     @Override
-    protected WebElement forgotPasswordButton() {
+    protected WebElement getForgotPasswordButton() {
         return forgotPasswordButton;
     }
 
     @Override
-    protected WebElement contactUsLink() {
+    protected WebElement getContactUsLink() {
         return contactUsLink;
     }
 

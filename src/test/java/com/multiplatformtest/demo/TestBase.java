@@ -1,16 +1,17 @@
 package com.multiplatformtest.demo;
 
-import com.multiplatformtest.demo.driverfactory.Driver;
-import com.multiplatformtest.demo.driverfactory.DriverFactory;
-import com.multiplatformtest.demo.driverfactory.PlatformType;
-import com.multiplatformtest.demo.page.AbstractLoginPage;
-import com.multiplatformtest.demo.page.android.AndroidLoginPage;
-import com.multiplatformtest.demo.page.ios.IosLoginPage;
+import com.multiplatformtest.demo.driver.Driver;
+import com.multiplatformtest.demo.driver.PlatformType;
+import com.multiplatformtest.demo.page.*;
+import com.multiplatformtest.demo.page.android.*;
+import com.multiplatformtest.demo.page.ios.*;
 import io.appium.java_client.AppiumDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 
@@ -21,17 +22,47 @@ class TestBase extends AbstractTestNGSpringContextTests {
     private PlatformType platformType;
 
     private AppiumDriver appiumDriver;
-    private DriverFactory driverFactory;
+
+    @Autowired
+    @Qualifier("driver")
     private Driver driver;
     protected AbstractLoginPage loginPage;
+    protected AbstractPreviewPage previewPage;
+    protected AbstractSignUpPage signUpPage;
+    protected AbstractResetPasswordPage resetPasswordPage;
+    protected AbstractNavigationTabBar navigationTabBar;
+    protected AbstractSettingsPage settingsPage;
+    protected AbstractCategoryPage categoryPage;
 
     @BeforeClass
     public void setup() throws MalformedURLException {
-        driverFactory = new DriverFactory();
-        driver = driverFactory.getDriver(platformType);
         appiumDriver = driver.setupDriver();
-        loginPage = driverFactory.
-				isAndroidPlatform(platformType) ? new AndroidLoginPage(appiumDriver) : new IosLoginPage(appiumDriver);
+
+        previewPage = platformType == PlatformType.ANDROID ? new AndroidPreviewPage(appiumDriver) : new IosPreviewPage(appiumDriver);
+        loginPage = platformType == PlatformType.ANDROID ? new AndroidLoginPage(appiumDriver) : new IosLoginPage(appiumDriver);
+        signUpPage = platformType == PlatformType.ANDROID ? new AndroidSignUpPage(appiumDriver) : new IosSignUpPage(appiumDriver);
+        resetPasswordPage = platformType == PlatformType.ANDROID ? new AndroidResetPasswordPage(appiumDriver) : new IosResetPasswordPage(appiumDriver);
+        navigationTabBar = platformType == PlatformType.ANDROID ? new AndroidNavigationTabBar(appiumDriver) : new IosNavigationTabBar(appiumDriver);
+        settingsPage = platformType == PlatformType.ANDROID ? new AndroidSettingsPage(appiumDriver) : new IosSettingsPage(appiumDriver);
+        categoryPage = platformType == PlatformType.ANDROID ? new AndroidCategoryPage(appiumDriver) : new IosCategoryPage(appiumDriver);
+
+    }
+
+    @BeforeMethod
+    public void launchApp() {
+        appiumDriver.launchApp();
+    }
+
+    @AfterMethod
+    public void closeApp() {
+        appiumDriver.closeApp();
+    }
+
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            appiumDriver.quit();
+        }
     }
 
 }

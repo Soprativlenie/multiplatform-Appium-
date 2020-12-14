@@ -9,6 +9,7 @@ public class AndroidVerificationCodePage extends AbstractVerificationCodePage {
     public AndroidVerificationCodePage(AppiumDriver driver) {
         super(driver);
     }
+
     @AndroidFindBy(id = "com.fileforlife.app:id/verificationCodeEditText")
     private AndroidElement verificationInput;
 }

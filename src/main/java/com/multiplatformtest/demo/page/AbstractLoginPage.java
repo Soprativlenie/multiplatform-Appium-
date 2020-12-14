@@ -3,62 +3,95 @@ package com.multiplatformtest.demo.page;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
-
 public abstract class AbstractLoginPage extends Page {
 
     public AbstractLoginPage(AppiumDriver driver) {
         super(driver);
     }
 
-    public void fillEmailInput(String email) {
-        wait.withMessage("There is no element " + emailInput()).until(visibilityOf(emailInput()));
-        emailInput().sendKeys(email);
+    protected abstract WebElement getEmailInput();
+
+    protected abstract WebElement getBackButton();
+
+    protected abstract WebElement getLoginButton();
+
+    protected abstract WebElement getForgotPasswordButton();
+
+    protected abstract WebElement getContactUsLink();
+
+    protected abstract WebElement getPasswordInput();
+
+    protected abstract WebElement getPasswordToggleButton();
+
+    protected abstract WebElement getEmailErrorMessage();
+
+    protected abstract WebElement getPasswordErrorMessage();
+
+    protected abstract WebElement getInvalidAlertMessage();
+
+    public AbstractLoginPage fillEmailInput(String email) {
+        waitForElementBecomesVisible(getEmailInput());
+        getEmailInput().click();
+        getEmailInput().clear();
+        getEmailInput().sendKeys(email);
+        driver.hideKeyboard();
+        return this;
     }
 
-    public void fillPasswordInput(String password) {
-        passwordInput().sendKeys(password);
+    public AbstractLoginPage fillPasswordInput(String password) {
+        waitForElementBecomesVisible(getPasswordInput());
+        getPasswordInput().sendKeys(password);
+        driver.hideKeyboard();
+        return this;
     }
 
     public void tapLoginInButton() {
-        wait.withMessage("There's no the Login button").until(visibilityOf(loginButton()));
-        loginButton().click();
+        waitForElementBecomesVisible(getLoginButton());
+        getLoginButton().click();
     }
 
     public void tapForgotPasswordButton() {
-        wait.withMessage("There's no the Forgot Password button")
-                .until(visibilityOf(forgotPasswordButton()));
-        forgotPasswordButton().click();
+        waitForElementBecomesVisible(getForgotPasswordButton());
+        getForgotPasswordButton().click();
     }
 
     public void tapContactUsLink() {
-        wait.withMessage("There's no Contact Us Link").until(visibilityOf(contactUsLink()));
-        contactUsLink().click();
+        waitForElementBecomesVisible(getContactUsLink());
+        getContactUsLink().click();
     }
 
     public void tapTogglePasswordButton() {
-        wait.withMessage("There's no Toggle password button")
-                .until(visibilityOf(passwordToggleButton()));
-        passwordToggleButton().click();
+        waitForElementBecomesVisible(getPasswordToggleButton());
+        getPasswordToggleButton().click();
     }
 
     public void tapBackButton() {
-        wait.withMessage("There's no Back button").until(visibilityOf(backButton()));
-        backButton().click();
+        waitForElementBecomesVisible(getBackButton());
+        getBackButton().click();
     }
 
-    protected abstract WebElement emailInput();
+    public boolean isEmailErrorMessageDisplayed() {
+        waitForElementBecomesVisible(getEmailErrorMessage());
+        return getEmailErrorMessage().isDisplayed();
+    }
 
-    protected abstract WebElement backButton();
+    public boolean isPasswordErrorMessageDisplayed() {
+        waitForElementBecomesVisible(getPasswordErrorMessage());
+        return getPasswordErrorMessage().isDisplayed();
+    }
 
-    protected abstract WebElement loginButton();
+    public String getPassword() {
+        return getPasswordInput().getText();
+    }
 
-    protected abstract WebElement forgotPasswordButton();
+    public boolean isInvalidLoginAlertMessageDisplayed() {
+        waitForElementBecomesVisible(getInvalidAlertMessage());
+        return getInvalidAlertMessage().isDisplayed();
+    }
 
-    protected abstract WebElement contactUsLink();
+    public boolean isLogInScreen() {
+        return getLoginButton().isDisplayed();
+    }
 
-    protected abstract WebElement passwordInput();
-
-    protected abstract WebElement passwordToggleButton();
 
 }
