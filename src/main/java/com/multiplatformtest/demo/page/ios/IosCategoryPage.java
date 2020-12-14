@@ -18,7 +18,7 @@ public class IosCategoryPage extends AbstractCategoryPage {
     }
 
     @Override
-    protected List<WebElement> categories() {
+    protected List<WebElement> getCategories() {
         return null;
     }
 

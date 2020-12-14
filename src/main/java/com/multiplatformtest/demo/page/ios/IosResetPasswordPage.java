@@ -10,32 +10,32 @@ public class IosResetPasswordPage extends AbstractResetPasswordPage {
     }
 
     @Override
-    protected WebElement backButton() {
+    protected WebElement getBackButton() {
         return null;
     }
 
     @Override
-    protected WebElement emailInput() {
+    protected WebElement getEmailInput() {
         return null;
     }
 
     @Override
-    protected WebElement confirmButton() {
+    protected WebElement getConfirmButton() {
         return null;
     }
 
     @Override
-    protected WebElement invalidMessageText() {
+    protected WebElement getInvalidMessageText() {
         return null;
     }
 
     @Override
-    protected WebElement popUpWithNoExistEmailMessage() {
+    protected WebElement getPopUpWithNoExistEmailMessage() {
         return null;
     }
 
     @Override
-    protected WebElement okButtonOnTheNoExistEmailPopup() {
+    protected WebElement getOkButtonOnTheNoExistEmailPopup() {
         return null;
     }
 }

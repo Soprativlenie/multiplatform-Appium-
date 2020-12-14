@@ -177,14 +177,10 @@ public class SmokeTest extends TestBase {
         String pass = "Qwerty_123";
         loginPage.fillEmailInput(email)
                 .fillPasswordInput(pass)
-        .tapLoginInButton();
+                .tapLoginInButton();
         categoryPage.openCategory();
 //        Assert.assertTrue(categoryPage.isMainImageDisplayedOnCategoryScreen());
     }
-
-
-
-
 
 
 }

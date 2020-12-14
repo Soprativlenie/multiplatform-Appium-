@@ -47,47 +47,47 @@ public class IosLoginPage extends AbstractLoginPage {
 
 
     @Override
-    protected WebElement emailInput() {
+    protected WebElement getEmailInput() {
         return emailInput;
     }
 
     @Override
-    protected WebElement backButton() {
+    protected WebElement getBackButton() {
         return backButton;
     }
 
     @Override
-    protected WebElement loginButton() {
+    protected WebElement getLoginButton() {
         return loginButton;
     }
 
     @Override
-    protected WebElement forgotPasswordButton() {
+    protected WebElement getForgotPasswordButton() {
         return forgotPasswordButton;
     }
 
     @Override
-    protected WebElement contactUsLink() {
+    protected WebElement getContactUsLink() {
         return contactUsLink;
     }
 
     @Override
-    protected WebElement passwordInput() {
+    protected WebElement getPasswordInput() {
         return passwordInput;
     }
 
     @Override
-    protected WebElement passwordToggleButton() {
+    protected WebElement getPasswordToggleButton() {
         return passwordToggleButton;
     }
 
     @Override
-    protected WebElement emailErrorMessage() {
+    protected WebElement getEmailErrorMessage() {
         return null;
     }
 
     @Override
-    protected WebElement passwordErrorMessage() {
+    protected WebElement getPasswordErrorMessage() {
         return null;
     }
 

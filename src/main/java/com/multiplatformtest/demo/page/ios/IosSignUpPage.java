@@ -10,122 +10,122 @@ public class IosSignUpPage extends AbstractSignUpPage {
     }
 
     @Override
-    protected WebElement firstNameInput() {
+    protected WebElement getFirstNameInput() {
         return null;
     }
 
     @Override
-    protected WebElement lastNameInput() {
+    protected WebElement getLastNameInput() {
         return null;
     }
 
     @Override
-    protected WebElement emailInput() {
+    protected WebElement getEmailInput() {
         return null;
     }
 
     @Override
-    protected WebElement dateOfBirthInput() {
+    protected WebElement getDateOfBirthInput() {
         return null;
     }
 
     @Override
-    protected WebElement passwordInput() {
+    protected WebElement getPasswordInput() {
         return null;
     }
 
     @Override
-    protected WebElement confirmPasswordInput() {
+    protected WebElement getConfirmPasswordInput() {
         return null;
     }
 
     @Override
-    protected WebElement signUpButton() {
+    protected WebElement getSignUpButton() {
         return null;
     }
 
     @Override
-    protected WebElement receiveNewsLetterCheckbox() {
+    protected WebElement getReceiveNewsLetterCheckbox() {
         return null;
     }
 
     @Override
-    protected WebElement passwordCheckbox() {
+    protected WebElement getPasswordCheckbox() {
         return null;
     }
 
     @Override
-    protected WebElement confirmPasswordCheckbox() {
+    protected WebElement getConfirmPasswordCheckbox() {
         return null;
     }
 
     @Override
-    protected WebElement backButton() {
+    protected WebElement getBackButton() {
         return null;
     }
 
     @Override
-    protected WebElement signUpTextView() {
+    protected WebElement getSignUpTextView() {
         return null;
     }
 
     @Override
-    protected WebElement datePicker() {
+    protected WebElement getDatePicker() {
         return null;
     }
 
     @Override
-    protected WebElement datePickerOkButton() {
+    protected WebElement getDatePickerOkButton() {
         return null;
     }
 
     @Override
-    protected WebElement passwordAlert() {
+    protected WebElement getPasswordAlert() {
         return null;
     }
 
     @Override
-    protected WebElement okButtonOnThePasswordAlert() {
+    protected WebElement getOkButtonOnThePasswordAlert() {
         return null;
     }
 
     @Override
-    protected WebElement firstNameErrorMessage() {
+    protected WebElement getFirstNameErrorMessage() {
         return null;
     }
 
     @Override
-    protected WebElement lastNameErrorMessage() {
+    protected WebElement getLastNameErrorMessage() {
         return null;
     }
 
     @Override
-    protected WebElement emailErrorMessage() {
+    protected WebElement getEmailErrorMessage() {
         return null;
     }
 
     @Override
-    protected WebElement dateOfBirthErrorMessage() {
+    protected WebElement getDateOfBirthErrorMessage() {
         return null;
     }
 
     @Override
-    protected WebElement passwordErrorMessage() {
+    protected WebElement getPasswordErrorMessage() {
         return null;
     }
 
     @Override
-    protected WebElement confirmPasswordErrorMessage() {
+    protected WebElement getConfirmPasswordErrorMessage() {
         return null;
     }
 
     @Override
-    protected WebElement privacyLink() {
+    protected WebElement getPrivacyLink() {
         return null;
     }
 
     @Override
-    protected WebElement closeButtonOnTheWebView() {
+    protected WebElement getCloseButtonOnTheWebView() {
         return null;
     }
 }

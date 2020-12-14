@@ -8,42 +8,43 @@ public abstract class AbstractResetPasswordPage extends Page {
         super(driver);
     }
 
-    protected abstract WebElement backButton();
+    protected abstract WebElement getBackButton();
 
-    protected abstract WebElement emailInput();
+    protected abstract WebElement getEmailInput();
 
-    protected abstract WebElement confirmButton();
+    protected abstract WebElement getConfirmButton();
 
-    protected abstract WebElement invalidMessageText();
+    protected abstract WebElement getInvalidMessageText();
 
-    protected abstract WebElement popUpWithNoExistEmailMessage();
+    protected abstract WebElement getPopUpWithNoExistEmailMessage();
 
-    protected abstract WebElement okButtonOnTheNoExistEmailPopup();
+    protected abstract WebElement getOkButtonOnTheNoExistEmailPopup();
 
     public boolean isResetPasswordScreen() {
-        return confirmButton().isDisplayed();
+        return getConfirmButton().isDisplayed();
     }
 
     public void tapBackButton() {
-        backButton().click();
+        getBackButton().click();
     }
 
     public AbstractResetPasswordPage fillEmailInput(String email) {
-        waitForElementBecomesVisible(emailInput());
-        emailInput().sendKeys(email);
+        waitForElementBecomesVisible(getEmailInput());
+        getEmailInput().sendKeys(email);
         return this;
     }
 
     public boolean isEmailErrorMessageDisplayed() {
-        waitForElementBecomesVisible(invalidMessageText());
-        return invalidMessageText().isDisplayed();
+        waitForElementBecomesVisible(getInvalidMessageText());
+        return getInvalidMessageText().isDisplayed();
     }
 
-    public void tapConfirmButton(){
-        confirmButton().click();
+    public void tapConfirmButton() {
+        getConfirmButton().click();
     }
-    public boolean isInvalidAlertMessageDisplayed(){
-        return popUpWithNoExistEmailMessage().isDisplayed();
+
+    public boolean isInvalidAlertMessageDisplayed() {
+        return getPopUpWithNoExistEmailMessage().isDisplayed();
     }
 
 

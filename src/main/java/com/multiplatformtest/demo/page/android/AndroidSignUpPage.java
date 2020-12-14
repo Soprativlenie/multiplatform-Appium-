@@ -88,122 +88,122 @@ public class AndroidSignUpPage extends AbstractSignUpPage {
     private AndroidElement marketingEmailsCheckbox;
 
     @Override
-    protected WebElement firstNameInput() {
+    protected WebElement getFirstNameInput() {
         return firstNameInput;
     }
 
     @Override
-    protected WebElement lastNameInput() {
+    protected WebElement getLastNameInput() {
         return lastNameInput;
     }
 
     @Override
-    protected WebElement emailInput() {
+    protected WebElement getEmailInput() {
         return emailInput;
     }
 
     @Override
-    protected WebElement dateOfBirthInput() {
+    protected WebElement getDateOfBirthInput() {
         return dateOfBirthInput;
     }
 
     @Override
-    protected WebElement passwordInput() {
+    protected WebElement getPasswordInput() {
         return passwordInput;
     }
 
     @Override
-    protected WebElement confirmPasswordInput() {
+    protected WebElement getConfirmPasswordInput() {
         return confirmPasswordInput;
     }
 
     @Override
-    protected WebElement signUpButton() {
+    protected WebElement getSignUpButton() {
         return signUpButton;
     }
 
     @Override
-    protected WebElement receiveNewsLetterCheckbox() {
+    protected WebElement getReceiveNewsLetterCheckbox() {
         return receiveNewsLetterCheckbox;
     }
 
     @Override
-    protected WebElement passwordCheckbox() {
+    protected WebElement getPasswordCheckbox() {
         return passwordCheckbox;
     }
 
     @Override
-    protected WebElement confirmPasswordCheckbox() {
+    protected WebElement getConfirmPasswordCheckbox() {
         return confirmPasswordCheckbox;
     }
 
     @Override
-    protected WebElement backButton() {
+    protected WebElement getBackButton() {
         return backButton;
     }
 
     @Override
-    protected WebElement signUpTextView() {
+    protected WebElement getSignUpTextView() {
         return signUpTextView;
     }
 
     @Override
-    protected WebElement datePicker() {
+    protected WebElement getDatePicker() {
         return datePicker;
     }
 
     @Override
-    protected WebElement datePickerOkButton() {
+    protected WebElement getDatePickerOkButton() {
         return datePickerOkButton;
     }
 
     @Override
-    protected WebElement passwordAlert() {
+    protected WebElement getPasswordAlert() {
         return passwordAlert;
     }
 
     @Override
-    protected WebElement okButtonOnThePasswordAlert() {
+    protected WebElement getOkButtonOnThePasswordAlert() {
         return okButtonOnThePasswordAlert;
     }
 
     @Override
-    protected WebElement firstNameErrorMessage() {
+    protected WebElement getFirstNameErrorMessage() {
         return firstNameErrorMessage;
     }
 
     @Override
-    protected WebElement lastNameErrorMessage() {
+    protected WebElement getLastNameErrorMessage() {
         return lastNameErrorMessage;
     }
 
     @Override
-    protected WebElement emailErrorMessage() {
+    protected WebElement getEmailErrorMessage() {
         return emailErrorMessage;
     }
 
     @Override
-    protected WebElement dateOfBirthErrorMessage() {
+    protected WebElement getDateOfBirthErrorMessage() {
         return dateOfBirthErrorMessage;
     }
 
     @Override
-    protected WebElement passwordErrorMessage() {
+    protected WebElement getPasswordErrorMessage() {
         return passwordErrorMessage;
     }
 
     @Override
-    protected WebElement confirmPasswordErrorMessage() {
+    protected WebElement getConfirmPasswordErrorMessage() {
         return confirmPasswordErrorMessage;
     }
 
     @Override
-    protected WebElement privacyLink() {
+    protected WebElement getPrivacyLink() {
         return privacyLink;
     }
 
     @Override
-    protected WebElement closeButtonOnTheWebView() {
+    protected WebElement getCloseButtonOnTheWebView() {
         return closeButtonOnTheWebView;
     }
 

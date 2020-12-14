@@ -10,17 +10,18 @@ import java.util.List;
 
 public class AndroidCategoryPage extends AbstractCategoryPage {
 
-    @AndroidFindBy( xpath= "//*[@resource-id='com.fileforlife.app:id/swipeContainer']//android.view.ViewGroup")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.fileforlife.app:id/swipeContainer']//android.view.ViewGroup")
     private AndroidElement mainImage;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/categoryImageView")
     private AndroidElement categoryImage;
 
-    @AndroidFindBy (id = "com.fileforlife.app:id/nameCategoriesTextView")
+    @AndroidFindBy(id = "com.fileforlife.app:id/nameCategoriesTextView")
     private List<WebElement> categories;
 
     @AndroidFindBy(id = "com.fileforlife.app:id/backImageView")
     private AndroidElement backButton; //using only on the SingleCategory screen
+
     @Override
     protected WebElement getSearchButton() {
         return null;
@@ -32,7 +33,7 @@ public class AndroidCategoryPage extends AbstractCategoryPage {
     }
 
     @Override
-    protected List<WebElement> categories() {
+    protected List<WebElement> getCategories() {
         return categories;
     }
 

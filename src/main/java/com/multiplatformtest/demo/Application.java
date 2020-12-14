@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 
-
 @SpringBootApplication
 @EnableConfigurationProperties(Capability.class)
 public class Application {

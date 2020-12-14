@@ -6,8 +6,6 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public class AndroidPreviewPage extends AbstractPreviewPage {
 
     public AndroidPreviewPage(AppiumDriver driver) {
@@ -21,15 +19,14 @@ public class AndroidPreviewPage extends AbstractPreviewPage {
     private AndroidElement signUpButton;
 
     @Override
-    protected WebElement loginButton() {
+    protected WebElement getLoginButton() {
         return loginButton;
     }
 
     @Override
-    protected WebElement signUpButton() {
+    protected WebElement getSignUpButton() {
         return signUpButton;
     }
-
 
 
 }

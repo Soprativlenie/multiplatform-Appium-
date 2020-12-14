@@ -27,32 +27,32 @@ public class AndroidResetPasswordPage extends AbstractResetPasswordPage {
     private AndroidElement okButtonOnTheNoExistEmailPopup;
 
     @Override
-    protected WebElement backButton() {
+    protected WebElement getBackButton() {
         return backButton;
     }
 
     @Override
-    protected WebElement emailInput() {
+    protected WebElement getEmailInput() {
         return emailInput;
     }
 
     @Override
-    protected WebElement confirmButton() {
+    protected WebElement getConfirmButton() {
         return confirmButton;
     }
 
     @Override
-    protected WebElement invalidMessageText() {
+    protected WebElement getInvalidMessageText() {
         return invalidMessageText;
     }
 
     @Override
-    protected WebElement popUpWithNoExistEmailMessage() {
+    protected WebElement getPopUpWithNoExistEmailMessage() {
         return popUpWithNoExistEmailMessage;
     }
 
     @Override
-    protected WebElement okButtonOnTheNoExistEmailPopup() {
+    protected WebElement getOkButtonOnTheNoExistEmailPopup() {
         return okButtonOnTheNoExistEmailPopup;
     }
 

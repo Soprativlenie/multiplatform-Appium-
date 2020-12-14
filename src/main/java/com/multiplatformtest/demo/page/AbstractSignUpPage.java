@@ -1,124 +1,116 @@
 package com.multiplatformtest.demo.page;/* Created by user on 29.10.20 */
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.time.Duration;
-import java.util.HashMap;
 
 public abstract class AbstractSignUpPage extends Page {
     public AbstractSignUpPage(AppiumDriver driver) {
         super(driver);
     }
 
-    protected abstract WebElement firstNameInput();
+    protected abstract WebElement getFirstNameInput();
 
-    protected abstract WebElement lastNameInput();
+    protected abstract WebElement getLastNameInput();
 
-    protected abstract WebElement emailInput();
+    protected abstract WebElement getEmailInput();
 
-    protected abstract WebElement dateOfBirthInput();
+    protected abstract WebElement getDateOfBirthInput();
 
-    protected abstract WebElement passwordInput();
+    protected abstract WebElement getPasswordInput();
 
-    protected abstract WebElement confirmPasswordInput();
+    protected abstract WebElement getConfirmPasswordInput();
 
-    protected abstract WebElement signUpButton();
+    protected abstract WebElement getSignUpButton();
 
-    protected abstract WebElement receiveNewsLetterCheckbox();
+    protected abstract WebElement getReceiveNewsLetterCheckbox();
 
-    protected abstract WebElement passwordCheckbox();
+    protected abstract WebElement getPasswordCheckbox();
 
-    protected abstract WebElement confirmPasswordCheckbox();
+    protected abstract WebElement getConfirmPasswordCheckbox();
 
-    protected abstract WebElement backButton();
+    protected abstract WebElement getBackButton();
 
-    protected abstract WebElement signUpTextView();
+    protected abstract WebElement getSignUpTextView();
 
-    protected abstract WebElement datePicker();
+    protected abstract WebElement getDatePicker();
 
-    protected abstract WebElement datePickerOkButton();
+    protected abstract WebElement getDatePickerOkButton();
 
-    protected abstract WebElement passwordAlert();
+    protected abstract WebElement getPasswordAlert();
 
-    protected abstract WebElement okButtonOnThePasswordAlert();
+    protected abstract WebElement getOkButtonOnThePasswordAlert();
 
-    protected abstract WebElement firstNameErrorMessage();
+    protected abstract WebElement getFirstNameErrorMessage();
 
-    protected abstract WebElement lastNameErrorMessage();
+    protected abstract WebElement getLastNameErrorMessage();
 
-    protected abstract WebElement emailErrorMessage();
+    protected abstract WebElement getEmailErrorMessage();
 
-    protected abstract WebElement dateOfBirthErrorMessage();
+    protected abstract WebElement getDateOfBirthErrorMessage();
 
-    protected abstract WebElement passwordErrorMessage();
+    protected abstract WebElement getPasswordErrorMessage();
 
-    protected abstract WebElement confirmPasswordErrorMessage();
+    protected abstract WebElement getConfirmPasswordErrorMessage();
 
-    protected abstract WebElement privacyLink();
+    protected abstract WebElement getPrivacyLink();
 
-    protected abstract WebElement closeButtonOnTheWebView();
+    protected abstract WebElement getCloseButtonOnTheWebView();
 
     public AbstractSignUpPage enterName(String name) {
-        firstNameInput().sendKeys(name);
+        getFirstNameInput().sendKeys(name);
         return this;
     }
 
     public AbstractSignUpPage enterLastName(String lastName) {
-        lastNameInput().sendKeys(lastName);
+        getLastNameInput().sendKeys(lastName);
         return this;
     }
 
     public AbstractSignUpPage enterEmail(String email) {
-        emailInput().sendKeys(email);
+        getEmailInput().sendKeys(email);
         return this;
     }
 
     public AbstractSignUpPage enterPassword(String password) {
-        passwordInput().sendKeys(password);
+        getPasswordInput().sendKeys(password);
         return this;
     }
 
     public AbstractSignUpPage enterConfirmPassword(String confirmPassword) {
-        confirmPasswordInput().sendKeys(confirmPassword);
+        getConfirmPasswordInput().sendKeys(confirmPassword);
         return this;
     }
 
     public AbstractSignUpPage checkTheReceiveNewsLetterCheckbox() {
-        receiveNewsLetterCheckbox().click();
+        getReceiveNewsLetterCheckbox().click();
         return this;
     }
 
     public AbstractSignUpPage tapDateInput() {
-        dateOfBirthInput().click();
+        getDateOfBirthInput().click();
         return this;
     }
 
     public AbstractSignUpPage tapPasswordInput() {
-        passwordInput().click();
+        getPasswordInput().click();
         return this;
     }
 
     public AbstractSignUpPage tapOkButtonOnThePasswordAlert() {
-        wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(passwordAlert()));
-        okButtonOnThePasswordAlert().click();
+        wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(getPasswordAlert()));
+        getOkButtonOnThePasswordAlert().click();
         return this;
     }
 
     public AbstractSignUpPage tapOkButtonOnTheDatePicker() {
-        wait.withMessage("Date picker isn't displayed").until(ExpectedConditions.visibilityOf(datePicker()));
-        datePickerOkButton().click();
+        wait.withMessage("Date picker isn't displayed").until(ExpectedConditions.visibilityOf(getDatePicker()));
+        getDatePickerOkButton().click();
         return this;
     }
 
     public AbstractSignUpPage tapConfirmPasswordInput() {
-        confirmPasswordInput().click();
+        getConfirmPasswordInput().click();
         return this;
     }
 
@@ -126,58 +118,58 @@ public abstract class AbstractSignUpPage extends Page {
     public void tapSingUpButton() {
 //       action.moveTo(new PointOption().withCoordinates(607,1885)).perform();
         driver.hideKeyboard();
-        signUpButton().click();
+        getSignUpButton().click();
     }
 
     public boolean isFirstNameErrorMessageDisplayed() {
-        return firstNameErrorMessage().isDisplayed();
+        return getFirstNameErrorMessage().isDisplayed();
     }
 
     public boolean isLastNameErrorMessageDisplayed() {
-        return lastNameErrorMessage().isDisplayed();
+        return getLastNameErrorMessage().isDisplayed();
     }
 
     public boolean isEmailErrorMessageDisplayed() {
-        return emailErrorMessage().isDisplayed();
+        return getEmailErrorMessage().isDisplayed();
     }
 
     public boolean isDateOfBirthErrorMessageDisplayed() {
-        return dateOfBirthErrorMessage().isDisplayed();
+        return getDateOfBirthErrorMessage().isDisplayed();
     }
 
     public boolean isDateAlertDisplayed() {
-        return datePicker().isDisplayed();
+        return getDatePicker().isDisplayed();
     }
 
     public boolean isPasswordErrorMessageDisplayed() {
-        return passwordErrorMessage().isDisplayed();
+        return getPasswordErrorMessage().isDisplayed();
     }
 
     public boolean isConfirmPasswordErrorMessageDisplayed() {
-        return confirmPasswordErrorMessage().isDisplayed();
+        return getConfirmPasswordErrorMessage().isDisplayed();
     }
 
     public boolean isPasswordAlertDisplayed() {
-        return wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(passwordAlert()))
+        return wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(getPasswordAlert()))
                 .isDisplayed();
     }
 
     public String getPassword() {
-        return passwordInput().getText();
+        return getPasswordInput().getText();
     }
 
     public AbstractSignUpPage tapHideButtonOnThePasswordInput() {
-        passwordCheckbox().click();
+        getPasswordCheckbox().click();
         return this;
     }
 
     public AbstractSignUpPage tapHideButtonOnTheConfirmPasswordInput() {
-        confirmPasswordCheckbox().click();
+        getConfirmPasswordCheckbox().click();
         return this;
     }
 
     public String getConfirmPassword() {
-        return confirmPasswordInput().getText();
+        return getConfirmPasswordInput().getText();
     }
 
     public String getRandomEmail() {

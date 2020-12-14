@@ -45,5 +45,4 @@ public abstract class Page implements Swipeable {
     }
 
 
-
 }

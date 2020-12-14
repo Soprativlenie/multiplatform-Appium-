@@ -9,87 +9,88 @@ public abstract class AbstractLoginPage extends Page {
         super(driver);
     }
 
-    protected abstract WebElement emailInput();
+    protected abstract WebElement getEmailInput();
 
-    protected abstract WebElement backButton();
+    protected abstract WebElement getBackButton();
 
-    protected abstract WebElement loginButton();
+    protected abstract WebElement getLoginButton();
 
-    protected abstract WebElement forgotPasswordButton();
+    protected abstract WebElement getForgotPasswordButton();
 
-    protected abstract WebElement contactUsLink();
+    protected abstract WebElement getContactUsLink();
 
-    protected abstract WebElement passwordInput();
+    protected abstract WebElement getPasswordInput();
 
-    protected abstract WebElement passwordToggleButton();
+    protected abstract WebElement getPasswordToggleButton();
 
-    protected abstract WebElement emailErrorMessage();
+    protected abstract WebElement getEmailErrorMessage();
 
-    protected abstract WebElement passwordErrorMessage();
+    protected abstract WebElement getPasswordErrorMessage();
 
     protected abstract WebElement getInvalidAlertMessage();
 
     public AbstractLoginPage fillEmailInput(String email) {
-        waitForElementBecomesVisible(emailInput());
-        emailInput().click();
-        emailInput().clear();
-        emailInput().sendKeys(email);
+        waitForElementBecomesVisible(getEmailInput());
+        getEmailInput().click();
+        getEmailInput().clear();
+        getEmailInput().sendKeys(email);
         driver.hideKeyboard();
         return this;
     }
 
     public AbstractLoginPage fillPasswordInput(String password) {
-        waitForElementBecomesVisible(passwordInput());
-        passwordInput().sendKeys(password);
+        waitForElementBecomesVisible(getPasswordInput());
+        getPasswordInput().sendKeys(password);
         driver.hideKeyboard();
         return this;
     }
 
     public void tapLoginInButton() {
-        waitForElementBecomesVisible(loginButton());
-        loginButton().click();
+        waitForElementBecomesVisible(getLoginButton());
+        getLoginButton().click();
     }
 
     public void tapForgotPasswordButton() {
-        waitForElementBecomesVisible(forgotPasswordButton());
-        forgotPasswordButton().click();
+        waitForElementBecomesVisible(getForgotPasswordButton());
+        getForgotPasswordButton().click();
     }
 
     public void tapContactUsLink() {
-        waitForElementBecomesVisible(contactUsLink());
-        contactUsLink().click();
+        waitForElementBecomesVisible(getContactUsLink());
+        getContactUsLink().click();
     }
 
     public void tapTogglePasswordButton() {
-        waitForElementBecomesVisible(passwordToggleButton());
-        passwordToggleButton().click();
+        waitForElementBecomesVisible(getPasswordToggleButton());
+        getPasswordToggleButton().click();
     }
 
     public void tapBackButton() {
-        waitForElementBecomesVisible(backButton());
-
-        backButton().click();
+        waitForElementBecomesVisible(getBackButton());
+        getBackButton().click();
     }
 
     public boolean isEmailErrorMessageDisplayed() {
-        waitForElementBecomesVisible(emailErrorMessage());
-        return emailErrorMessage().isDisplayed();
+        waitForElementBecomesVisible(getEmailErrorMessage());
+        return getEmailErrorMessage().isDisplayed();
     }
 
     public boolean isPasswordErrorMessageDisplayed() {
-        waitForElementBecomesVisible(passwordErrorMessage());
-        return passwordErrorMessage().isDisplayed();
+        waitForElementBecomesVisible(getPasswordErrorMessage());
+        return getPasswordErrorMessage().isDisplayed();
     }
 
     public String getPassword() {
-        return passwordInput().getText();
+        return getPasswordInput().getText();
     }
-    public boolean isInvalidLoginAlertMessageDisplayed(){
+
+    public boolean isInvalidLoginAlertMessageDisplayed() {
         waitForElementBecomesVisible(getInvalidAlertMessage());
         return getInvalidAlertMessage().isDisplayed();
     }
-    public boolean isLogInScreen(){
-        return loginButton().isDisplayed();
+
+    public boolean isLogInScreen() {
+        return getLoginButton().isDisplayed();
     }
 
 

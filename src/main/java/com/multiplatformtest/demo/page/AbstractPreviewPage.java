@@ -8,20 +8,20 @@ public abstract class AbstractPreviewPage extends Page {
         super(driver);
     }
 
-    protected abstract WebElement loginButton();
-    protected abstract WebElement signUpButton();
+    protected abstract WebElement getLoginButton();
+    protected abstract WebElement getSignUpButton();
 
     public void tapTheLogInButton() {
-        loginButton().click();
+        getLoginButton().click();
     }
 
     public void tapTheSignUpButton(){
-        waitForElementBecomesVisible(signUpButton());
-        signUpButton().click();
+        waitForElementBecomesVisible(getSignUpButton());
+        getSignUpButton().click();
     }
 
     public boolean isPreviewScreen(){
-        return loginButton().isDisplayed();
+        return getLoginButton().isDisplayed();
     }
 
 }

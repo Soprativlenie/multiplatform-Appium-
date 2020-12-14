@@ -19,12 +19,12 @@ public class IosPreviewPage extends AbstractPreviewPage {
 
 
     @Override
-    protected WebElement loginButton() {
+    protected WebElement getLoginButton() {
         return loginButton;
     }
 
     @Override
-    protected WebElement signUpButton() {
+    protected WebElement getSignUpButton() {
         return signUpButton;
     }
 
